@@ -48,6 +48,7 @@ public class Game {
      * @preturn Metóda vracia true pokial bola ukončená korektne a false pokiaľ sa hráč vzdal alebo sa vyskytla chyba.
      * @author xloos
      * @version 1.0.0
+     * nojo
      */
     public boolean endGame(){
         throw new UnsupportedOperationException("Not implemented yet.");
