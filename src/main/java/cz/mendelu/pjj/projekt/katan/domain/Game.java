@@ -50,6 +50,7 @@ public class Game {
      * @version 1.0.0
      *
      * žeby?
+     * no jo
      */
     public boolean endGame(){
         throw new UnsupportedOperationException("Not implemented yet.");
