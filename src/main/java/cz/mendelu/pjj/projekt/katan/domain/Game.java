@@ -36,7 +36,6 @@ public class Game {
      * @param block ,ktorý bude zablokovaný.
      * @author xloos
      * @version 1.0.0
-     * zeby?
      */
     public void piratMove(CountryBlock block){
         throw new UnsupportedOperationException("Not implemented yet.");
@@ -49,8 +48,6 @@ public class Game {
      * @preturn Metóda vracia true pokial bola ukončená korektne a false pokiaľ sa hráč vzdal alebo sa vyskytla chyba.
      * @author xloos
      * @version 1.0.0
-     * nojo
-     * tak ještě něco napíšu
      */
     public boolean endGame(){
         throw new UnsupportedOperationException("Not implemented yet.");
