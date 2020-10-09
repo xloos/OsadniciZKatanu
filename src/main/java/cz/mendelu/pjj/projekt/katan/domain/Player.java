@@ -17,6 +17,22 @@ public class Player {
 
     }
 
+    /**
+     * Metoda provede výměnu Resources. Záměna bude v úrčitém poměru, který se předem stanový.
+     * @param put Resources, které bude hráč měnit.
+     * @param get Resources, které hráč chce dostat.
+     * @author xpavlik
+     * @version 1.0.0
+     */
+
+    public void trade(Resources put, Resources get) {
+
+        throw new UnsupportedOperationException("Not implemented yet.");
+
+    }
+
+
+
 
 
 
