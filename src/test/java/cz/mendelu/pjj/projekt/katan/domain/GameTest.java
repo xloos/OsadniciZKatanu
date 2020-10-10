@@ -48,7 +48,16 @@ class GameTest {
      * @version 1.0.0
      */
     @Test
-    void piratMove() {
+    void piratMove_desert() {
+        //setup
+        Game game = Game.createNewGame();
+        CountryBlock countryBlock_1 = game.getCountryBlock(2,2);
+        //when
+        CountryBlock countryBlock_2 = game.getCountryBlock(5,7);
+        game.piratMove(countryBlock_1);
+        //then
+        assertNotSame(countryBlock_1,countryBlock_2);
+
     }
 
     /**
@@ -68,7 +77,7 @@ class GameTest {
         //setup
         Game game = Game.createNewGame();
         //when
-        CountryBlock countryBlock = game.getCountryBlock(1,1);
+        CountryBlock countryBlock = game.getCountryBlock(1,2);
         //then
         assertNotNull(countryBlock);
     }
@@ -81,7 +90,7 @@ class GameTest {
         //setup
         Game game = Game.createNewGame();
         //when
-        CountryBlock countryBlock = game.getCountryBlock(6,1);
+        CountryBlock countryBlock = game.getCountryBlock(6,2);
         //then
         assertNull(countryBlock);
     }
