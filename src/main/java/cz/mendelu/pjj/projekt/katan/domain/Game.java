@@ -45,11 +45,19 @@ public class Game {
     /**
      * Metóda na ukončenie hry.
      * Spočíta sa počet získaných bodov.
-     * @preturn Metóda vracia true pokial bola ukončená korektne a false pokiaľ sa hráč vzdal alebo sa vyskytla chyba.
+     * @return Metóda vracia true pokial bola ukončená korektne a false pokiaľ sa hráč vzdal alebo sa vyskytla chyba.
      * @author xloos
      * @version 1.0.0
      */
     public boolean endGame(){
+
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+    /**
+     * @return Metóda vracia poel krajiny
+     * @version 1.0.0
+     */
+    public CountryBlock getCountryBlock(int c_type_number, int c_number) {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 }
