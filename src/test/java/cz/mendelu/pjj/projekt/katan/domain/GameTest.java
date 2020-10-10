@@ -40,8 +40,26 @@ class GameTest {
      * @version 1.0.0
      */
     @Test
-    void diceRoll() {
+    void diceRoll_outofrange() {
+        //when
+        Game game_1 = Game.createNewGame();
+        Player player = Player.createNewPlayer("Joe");
+        //then
+        assertNotEquals(game_1.diceRoll(player),1);
     }
+    /**
+     * @author xloos
+     * @version 1.0.0
+     */
+    @Test
+    void diceRoll() {
+        //when
+        Game game_1 = Game.createNewGame();
+        Player player = Player.createNewPlayer("Joe");
+        //then
+        assertEquals(game_1.diceRoll(player),6);
+    }
+
 
     /**
      * @author xloos
@@ -66,6 +84,11 @@ class GameTest {
      */
     @Test
     void endGame() {
+        //when
+        Game game = Game.createNewGame();
+        assertEquals(game.endGame(),1);
+
+
     }
 
     /**
