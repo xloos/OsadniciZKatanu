@@ -24,6 +24,18 @@ class PlayerTest {
      * @version 1.0.0
      */
     @Test
+    void createNewPlayer_duplicity() {
+        //when
+        Player p_1 = Player.createNewPlayer("Rick");
+        //then
+        assertNotNull(p_1);
+    }
+
+    /**
+     * @author xpavlik
+     * @version 1.0.0
+     */
+    @Test
     void trade() {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
@@ -31,6 +43,19 @@ class PlayerTest {
         p_1.trade("Wood","Stone");
         //then
         assertEquals("Wood","Stone");
+    }
+    /**
+     * @author xpavlik
+     * @version 1.0.0
+     */
+    @Test
+    void trade_outOfTrade_string() {
+        //setup
+        Player p_1 = Player.createNewPlayer("Rick");
+        //when + then
+        assertThrows(
+                IndexOutOfBoundsException.class,
+                () -> p_1.trade("Gold", "Iron"));
     }
 
     /**
@@ -44,7 +69,7 @@ class PlayerTest {
         //when
         p_1.buildRoad();
         //then
-        assertFalse(p_1.buildRoad());
+        assertTrue(p_1.buildRoad());
     }
 
     /**
@@ -58,7 +83,7 @@ class PlayerTest {
         //when
         p_1.buildVillage();
         //then
-        assertFalse(p_1.buildVillage());
+        assertTrue(p_1.buildVillage());
     }
 
 

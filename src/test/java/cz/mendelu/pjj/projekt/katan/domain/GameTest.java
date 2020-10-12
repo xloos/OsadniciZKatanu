@@ -101,7 +101,7 @@ class GameTest {
         //when
         game.endGame();
         //then
-        assertFalse(game.endGame());
+        assertTrue(game.endGame());
     }
 
 
