@@ -25,7 +25,7 @@ public class Player {
      * @version 1.0.0
      */
 
-    public void trade(int put, int get) {
+    public void trade(String put, String get) {
 
         throw new UnsupportedOperationException("Not implemented yet.");
 
@@ -53,7 +53,17 @@ public class Player {
         throw new UnsupportedOperationException("Not implemented yet.");
 
     }
+    /**
+     * Metoda na smazání hráče
+     * @return vrátí true pokud byl hráč smazán.
+     * @author xpavlik
+     * @version 1.0.0
+     */
 
+    public boolean deletePlayer() {
+        throw new UnsupportedOperationException("Not implemented yet.");
+
+    }
 
 
 

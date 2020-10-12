@@ -27,13 +27,10 @@ class PlayerTest {
     void trade() {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
-
         //when
-
+        p_1.trade("Wood","Stone");
         //then
-
-
-
+        assertNotEquals("Wood","Stone");
     }
 
     /**
@@ -42,6 +39,12 @@ class PlayerTest {
      */
     @Test
     void buildRoad() {
+        //setup
+        Player p_1 = Player.createNewPlayer("Rick");
+        //when
+        p_1.buildRoad();
+        //then
+        assertTrue(p_1.buildRoad());
     }
 
     /**
@@ -50,5 +53,20 @@ class PlayerTest {
      */
     @Test
     void buildVillage() {
+        //setup
+        Player p_1 = Player.createNewPlayer("Rick");
+        //when
+        p_1.buildVillage();
+        //then
+        assertTrue(p_1.buildVillage());
+    }
+
+
+    @Test
+    void deletePlayer() {
+        //when
+        Player p_1 = Player.createNewPlayer("Rick");
+        assertEquals(p_1.deletePlayer(),1);
+
     }
 }

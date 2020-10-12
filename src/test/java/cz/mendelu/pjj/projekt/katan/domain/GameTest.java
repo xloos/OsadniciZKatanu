@@ -88,8 +88,22 @@ class GameTest {
         Game game = Game.createNewGame();
         assertEquals(game.endGame(),1);
 
-
     }
+
+    /**
+     * @author xpavlik
+     * @version 1.0.0
+     */
+    @Test
+    void endGame_duplicity() {
+        //setup
+        Game game = Game.createNewGame();
+        //when
+        game.endGame();
+        //then
+        assertTrue(game.endGame());
+    }
+
 
     /**
      * @author xloos
