@@ -30,7 +30,7 @@ class PlayerTest {
         //when
         p_1.trade("Wood","Stone");
         //then
-        assertNotEquals("Wood","Stone");
+        assertEquals("Wood","Stone");
     }
 
     /**
@@ -44,7 +44,7 @@ class PlayerTest {
         //when
         p_1.buildRoad();
         //then
-        assertTrue(p_1.buildRoad());
+        assertFalse(p_1.buildRoad());
     }
 
     /**
@@ -58,7 +58,7 @@ class PlayerTest {
         //when
         p_1.buildVillage();
         //then
-        assertTrue(p_1.buildVillage());
+        assertFalse(p_1.buildVillage());
     }
 
 
