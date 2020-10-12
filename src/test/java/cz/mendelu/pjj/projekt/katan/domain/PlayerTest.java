@@ -27,12 +27,11 @@ class PlayerTest {
     void trade() {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
-        Resources r = new Resources();
-        Resources r1 = new Resources();
+
         //when
-        p_1.trade(r,r1);
+
         //then
-        assertNotSame(r,r1);
+
 
 
     }

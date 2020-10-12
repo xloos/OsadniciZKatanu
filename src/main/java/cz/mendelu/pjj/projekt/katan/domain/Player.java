@@ -18,14 +18,14 @@ public class Player {
     }
 
     /**
-     * Metoda provede výměnu Resources. Záměna bude v úrčitém poměru, který se předem stanový.
-     * @param put Resources, které bude hráč měnit.
-     * @param get Resources, které hráč chce dostat.
+     * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
+     * @param put surovina, kterou bude hráč měnit.
+     * @param get surovina, kterou hráč chce dostat.
      * @author xpavlik
      * @version 1.0.0
      */
 
-    public void trade(Resources put, Resources get) {
+    public void trade(int put, int get) {
 
         throw new UnsupportedOperationException("Not implemented yet.");
 
