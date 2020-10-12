@@ -21,6 +21,7 @@ public class Player {
      * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
      * @param put surovina, kterou bude hráč měnit.
      * @param get surovina, kterou hráč chce dostat.
+     * @throws IndexOutOfBoundsException
      * @author xpavlik
      * @version 1.0.0
      */
