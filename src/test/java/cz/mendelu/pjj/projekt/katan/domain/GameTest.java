@@ -45,7 +45,7 @@ class GameTest {
         Game game_1 = Game.createNewGame();
         Player player = Player.createNewPlayer("Joe");
         //then
-        assertNotEquals(game_1.diceRoll(player),1);
+        assertNotEquals(game_1.diceRoll(),1);
     }
     /**
      * @author xloos
@@ -57,7 +57,7 @@ class GameTest {
         Game game_1 = Game.createNewGame();
         Player player = Player.createNewPlayer("Joe");
         //then
-        assertEquals(game_1.diceRoll(player),6);
+        assertEquals(game_1.diceRoll(),6);
     }
 
 
