@@ -1,39 +1,30 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Player {
 
     private String name;
-    private int wood;
-    private int grain;
-    private int stone;
-    private int brick;
-    private int sheep;
-    private int points;
+    private HashMap<String, Integer> resources;
+    private Buildings build;
+
+
 
     public Player(String name) {
+
         this.name = name;
-        this.wood = 1;
-        this.grain = 1;
-        this.stone = 1;
-        this.brick = 1;
-        this.sheep = 1;
-        this.points = 0;
+
+        resources = new HashMap<String, Integer>(5);
+        resources.put("WOOD",1);
+        resources.put("GRAIN",1);
+        resources.put("STONE",1);
+        resources.put("BRICK",1);
+        resources.put("SHEEP",1);
     }
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", wood=" + wood +
-                ", grain=" + grain +
-                ", stone=" + stone +
-                ", brick=" + brick +
-                ", sheep=" + sheep +
-                ", points=" + points +
-                '}';
-    }
 
     /**
      * Tovární metoda na vytvoření hráče.
@@ -43,7 +34,6 @@ public class Player {
      * @author xpavlik
      * @version 1.0.0
      */
-
 
     public static Player createNewPlayer(String name){
 
@@ -59,10 +49,6 @@ public class Player {
         return false;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, wood, grain, stone, brick, sheep, points);
-    }
 
     /**
      * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
@@ -117,57 +103,10 @@ public class Player {
         return name;
     }
 
-    public int getWood() {
-        return wood;
-    }
-
-    public int getGrain() {
-        return grain;
-    }
-
-    public int getStone() {
-        return stone;
-    }
-
-    public int getBrick() {
-        return brick;
-    }
-
-    public int getSheep() {
-        return sheep;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setWood(int wood) {
-        this.wood = wood;
-    }
-
-    public void setGrain(int grain) {
-        this.grain = grain;
-    }
-
-    public void setStone(int stone) {
-        this.stone = stone;
-    }
-
-    public void setBrick(int brick) {
-        this.brick = brick;
-    }
-
-    public void setSheep(int sheep) {
-        this.sheep = sheep;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
 
     public static void main(String[] args) {
         Player p1 = new Player("Jirka");

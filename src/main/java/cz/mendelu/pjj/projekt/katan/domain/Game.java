@@ -23,7 +23,7 @@ public class Game {
         players.add(new Player(hra.zistiMeno()));
         for (Player p : players) {
             System.out.println(p.getName());
-            System.out.println(p.getBrick());
+         //   System.out.println(p.getBrick());
         }
         return hra;
 
