@@ -1,5 +1,7 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import java.util.Objects;
+
 public class Player {
 
     private String name;
@@ -45,12 +47,21 @@ public class Player {
 
     public static Player createNewPlayer(String name){
 
+        Player p = new Player(name);
+        return p;
+    }
+    //equals
+    public boolean equals(Object obj) {
+        if(obj instanceof Player) {
+            Player p = (Player) obj;
+            return (this.name == p.name);
+        }
+        return false;
+    }
 
-
-
-
-        throw new UnsupportedOperationException("Not implemented yet.");
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, wood, grain, stone, brick, sheep, points);
     }
 
     /**
@@ -102,7 +113,69 @@ public class Player {
 
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getWood() {
+        return wood;
+    }
 
+    public int getGrain() {
+        return grain;
+    }
+
+    public int getStone() {
+        return stone;
+    }
+
+    public int getBrick() {
+        return brick;
+    }
+
+    public int getSheep() {
+        return sheep;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWood(int wood) {
+        this.wood = wood;
+    }
+
+    public void setGrain(int grain) {
+        this.grain = grain;
+    }
+
+    public void setStone(int stone) {
+        this.stone = stone;
+    }
+
+    public void setBrick(int brick) {
+        this.brick = brick;
+    }
+
+    public void setSheep(int sheep) {
+        this.sheep = sheep;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public static void main(String[] args) {
+        Player p1 = new Player("Jirka");
+        Player p2 = new Player("Pepa");
+        Player p3 = new Player("Jirka");
+
+        System.out.println(p1.equals(p2));
+        System.out.println(p1.equals(p3));
+    }
 
 }
