@@ -2,7 +2,7 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 public class Buildings {
 
-    int village;
-    int road;
-    int town;
+   private int village;
+   private int road;
+   private int town;
 }

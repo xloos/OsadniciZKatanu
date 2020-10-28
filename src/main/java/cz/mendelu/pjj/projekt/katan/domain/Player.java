@@ -2,13 +2,13 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 public class Player {
 
-    String name;
-    int wood;
-    int grain;
-    int stone;
-    int brick;
-    int sheep;
-    int points;
+    private String name;
+    private int wood;
+    private int grain;
+    private int stone;
+    private int brick;
+    private int sheep;
+    private int points;
 
     /**
      * Tovární metoda na vytvoření hráče.
