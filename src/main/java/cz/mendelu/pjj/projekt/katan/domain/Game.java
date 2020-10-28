@@ -14,8 +14,9 @@ public class Game {
      * @version 1.0.0
      */
     public static Game createNewGame(){
-
+        Player player = Player.createNewPlayer("Joe");
         throw new UnsupportedOperationException("Not implemented yet.");
+
     }
 
 
