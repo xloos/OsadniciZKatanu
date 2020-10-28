@@ -10,6 +10,29 @@ public class Player {
     private int sheep;
     private int points;
 
+    public Player(String name) {
+        this.name = name;
+        this.wood = 1;
+        this.grain = 1;
+        this.stone = 1;
+        this.brick = 1;
+        this.sheep = 1;
+        this.points = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", wood=" + wood +
+                ", grain=" + grain +
+                ", stone=" + stone +
+                ", brick=" + brick +
+                ", sheep=" + sheep +
+                ", points=" + points +
+                '}';
+    }
+
     /**
      * Tovární metoda na vytvoření hráče.
      * Metoda vytvoří nového hráče a nastaví atributy resources, buildings a points.
@@ -19,7 +42,9 @@ public class Player {
      * @version 1.0.0
      */
 
+
     public static Player createNewPlayer(String name){
+
 
 
 
