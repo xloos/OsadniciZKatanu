@@ -2,6 +2,14 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 public class Player {
 
+    String name;
+    int wood;
+    int grain;
+    int stone;
+    int brick;
+    int sheep;
+    int points;
+
     /**
      * Tovární metoda na vytvoření hráče.
      * Metoda vytvoří nového hráče a nastaví atributy resources, buildings a points.
@@ -12,6 +20,9 @@ public class Player {
      */
 
     public static Player createNewPlayer(String name){
+
+
+
 
         throw new UnsupportedOperationException("Not implemented yet.");
 
