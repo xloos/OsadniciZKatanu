@@ -1,9 +1,10 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
 public class CountryBlock {
-    int type_number;
-    int number;
-    boolean pirat;
+   private int type_number;
+   private int number;
+   private boolean pirat;
+   private Buildings buildings;
 
     public CountryBlock (int c_type_number, int c_number){
         this.type_number = c_type_number;
