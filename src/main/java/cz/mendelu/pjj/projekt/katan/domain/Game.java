@@ -1,7 +1,9 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
-public class Game {
 
+public class Game {
+    private CountryBlock country_block;
+    private int dice;
     /**
      * Továrenska metóda na vytvorenie novej hry.
      * Metóda vytvorý hracie pole a rozmiestni typy krajín.
