@@ -2,9 +2,10 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 import java.util.Objects;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Game {
-    private CountryBlock country_block;
+    private static CountryBlock country_block;
+    private static ArrayList<Player> players = new ArrayList<Player>();
     private int dice;
     /**
      * Továrenska metóda na vytvorenie novej hry.
@@ -15,14 +16,26 @@ public class Game {
      * @version 1.0.0
      */
     public static Game createNewGame(){
-        Game game = null;
-        game.diceRoll();
-        Player player = Player.createNewPlayer(game.zistiMeno());
-        throw new UnsupportedOperationException("Not implemented yet.");
+        Game hra = new Game();
+        players.add(new Player(hra.zistiMeno()));
+        players.add(new Player(hra.zistiMeno()));
+        players.add(new Player(hra.zistiMeno()));
+        players.add(new Player(hra.zistiMeno()));
+        for (Player p : players) {
+            System.out.println(p.getName());
+            System.out.println(p.getBrick());
+        }
+        return hra;
 
     }
-
+    /**
+     * Metóda na zistenie mena hráča.
+     * @return Meno hráča.
+     * @author xloos
+     * @version 1.0.0
+     */
     private String zistiMeno() {
+        System.out.println("Zadaj meno hráča: " );
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         return input;
@@ -36,7 +49,14 @@ public class Game {
      * @version 1.0.0
      */
     public int diceRoll(){
-        return (int) ((Math.random() * (12 - 2)) + 2);
+        int roll = (int)(Math.random() * 6 + 1) + (int)(Math.random() * 6 + 1);
+        if (roll == 7) {
+            return roll;
+        }
+        else {
+
+            return roll;
+        }
     }
 
 
@@ -92,11 +112,11 @@ public class Game {
         return Objects.hash(country_block, dice);
     }
 
-//    public static void main(String[] args) {
-//
-//        System.out.print(this.dice);
-//
-//    }
+    public static void main(String[] args) {
+        createNewGame();
+
+
+    }
 }
 
 
