@@ -1,6 +1,7 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Game {
     private CountryBlock country_block;
@@ -22,7 +23,9 @@ public class Game {
     }
 
     private String zistiMeno() {
-        return "Vlado";
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        return input;
     }
 
 
