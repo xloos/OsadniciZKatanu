@@ -14,11 +14,16 @@ public class Game {
      * @version 1.0.0
      */
     public static Game createNewGame(){
-        Player player = Player.createNewPlayer("Joe");
+        Game game = null;
+        game.diceRoll();
+        Player player = Player.createNewPlayer(game.zistiMeno());
         throw new UnsupportedOperationException("Not implemented yet.");
 
     }
 
+    private String zistiMeno() {
+        return "Vlado";
+    }
 
 
     /**
