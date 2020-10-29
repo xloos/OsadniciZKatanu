@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Player{
 
     private String name;
+    private int road = 0;
     private HashMap<String, Integer> resources;
     private ArrayList<CountryBlock> blocks = new ArrayList<CountryBlock>();
 
@@ -34,9 +35,6 @@ public class Player{
         }
 
     }
-
-
-
 
     public Player(String name) {
 
@@ -84,34 +82,22 @@ public class Player{
      * @version 1.0.0
      */
 
-    public void trade(String put, String get) {
+   /* public void trade(resources, String get) {
 
         throw new UnsupportedOperationException("Not implemented yet.");
 
     }
+    */
+
 
     /**
      * Metoda provede výstavbu nové cesty a zjistí zda má daný hráč dostatek surovin na stavbu.
-     * @return Metoda vrátí true pokud má hráč všechny potřebné suroviny pro stavbu cesty.
      * @author xpavlik
      * @version 1.0.0
      */
 
-    public boolean buildRoad() {
-        throw new UnsupportedOperationException("Not implemented yet.");
-
-    }
-
-
-    /**
-     * Metoda na smazání hráče
-     * @return vrátí true pokud byl hráč smazán.
-     * @author xpavlik
-     * @version 1.0.0
-     */
-
-    public boolean deletePlayer() {
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public void buyRoad() {
+        this.road +=1;
 
     }
 
@@ -123,6 +109,13 @@ public class Player{
         this.name = name;
     }
 
+    public void setRoad(int road) {
+        this.road = road;
+    }
+
+    public int getRoad() {
+        return road;
+    }
 
     public static void main(String[] args) {
         Player p1 = new Player("Jirka");
