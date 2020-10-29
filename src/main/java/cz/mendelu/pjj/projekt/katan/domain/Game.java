@@ -182,6 +182,62 @@ public class Game {
         CountryBlock cb53 = new CountryBlock(6,0,53);
         CountryBlock cb54 = new CountryBlock(6,0,54);
         countryBlocks.add(cb1);
+        countryBlocks.add(cb2);
+        countryBlocks.add(cb3);
+        countryBlocks.add(cb4);
+        countryBlocks.add(cb5);
+        countryBlocks.add(cb6);
+        countryBlocks.add(cb7);
+        countryBlocks.add(cb8);
+        countryBlocks.add(cb9);
+        countryBlocks.add(cb10);
+        countryBlocks.add(cb11);
+        countryBlocks.add(cb12);
+        countryBlocks.add(cb13);
+        countryBlocks.add(cb14);
+        countryBlocks.add(cb15);
+        countryBlocks.add(cb16);
+        countryBlocks.add(cb17);
+        countryBlocks.add(cb18);
+        countryBlocks.add(cb19);
+        countryBlocks.add(cb20);
+        countryBlocks.add(cb21);
+        countryBlocks.add(cb22);
+        countryBlocks.add(cb23);
+        countryBlocks.add(cb24);
+        countryBlocks.add(cb25);
+        countryBlocks.add(cb26);
+        countryBlocks.add(cb27);
+        countryBlocks.add(cb28);
+        countryBlocks.add(cb29);
+        countryBlocks.add(cb30);
+        countryBlocks.add(cb31);
+        countryBlocks.add(cb32);
+        countryBlocks.add(cb33);
+        countryBlocks.add(cb34);
+        countryBlocks.add(cb35);
+        countryBlocks.add(cb36);
+        countryBlocks.add(cb37);
+        countryBlocks.add(cb38);
+        countryBlocks.add(cb39);
+        countryBlocks.add(cb40);
+        countryBlocks.add(cb41);
+        countryBlocks.add(cb42);
+        countryBlocks.add(cb43);
+        countryBlocks.add(cb44);
+        countryBlocks.add(cb45);
+        countryBlocks.add(cb46);
+        countryBlocks.add(cb47);
+        countryBlocks.add(cb48);
+        countryBlocks.add(cb49);
+        countryBlocks.add(cb50);
+        countryBlocks.add(cb51);
+        countryBlocks.add(cb52);
+        countryBlocks.add(cb53);
+        countryBlocks.add(cb54);
+
+
+
 
     }
 }
