@@ -123,32 +123,6 @@ public class Game {
             //throw new UnsupportedOperationException("Incorrect input");
         }
     }
-
-
-
-    public static ArrayList<CountryBlock> getCountryBlocks() {
-        return countryBlocks;
-    }
-
-    public static ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    public int getDice() {
-        return dice;
-    }
-
-    public static void setCountryBlocks(ArrayList<CountryBlock> countryBlocks) {
-        Game.countryBlocks = countryBlocks;
-    }
-
-    public static void setPlayers(ArrayList<Player> players) {
-        Game.players = players;
-    }
-
-    public static void setDice(int dice) {
-        Game.dice = dice;
-    }
     /**
      * @return Metóda vracia pole krajiny
      * @version 1.0.0
@@ -262,11 +236,34 @@ public class Game {
         countryBlocks.add(cb52);
         countryBlocks.add(cb53);
         countryBlocks.add(cb54);
-
-
-
-
     }
+
+
+
+    public static ArrayList<CountryBlock> getCountryBlocks() {
+        return countryBlocks;
+    }
+
+    public static ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public int getDice() {
+        return dice;
+    }
+
+    public static void setCountryBlocks(ArrayList<CountryBlock> countryBlocks) {
+        Game.countryBlocks = countryBlocks;
+    }
+
+    public static void setPlayers(ArrayList<Player> players) {
+        Game.players = players;
+    }
+
+    public static void setDice(int dice) {
+        Game.dice = dice;
+    }
+
 }
 
 
