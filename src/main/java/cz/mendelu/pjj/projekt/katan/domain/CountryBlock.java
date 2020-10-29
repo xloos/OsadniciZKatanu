@@ -1,29 +1,61 @@
 package cz.mendelu.pjj.projekt.katan.domain;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 public class CountryBlock {
 
     Map<Integer,Integer> myblock = new HashMap<Integer, Integer>();
-    List<Map<Integer , Integer>> myMap  = new ArrayList<Map<Integer,Integer>>();
+    private  int suradnice;
+    private boolean pirat;
+    private int typ_obydlia =0; //0 = nie je nic postavene, 1 = postavena dedina , 2 = postavene mesto
 
-    private int type;
-   private int number;
-   private boolean pirat;
-   private Buildings buildings;
+    public CountryBlock (int c_type_number, int c_number, int c_suradnice){
+       this.suradnice = c_suradnice;
+        myblock.put(c_type_number, c_number);
+    }
+    public CountryBlock (int c_type_number, int c_number,int c_type_number1, int c_number1, int c_suradnice){
+        this.suradnice = c_suradnice;
+        myblock.put(c_type_number, c_number);
+        myblock.put(c_type_number1, c_number1);
+    }
 
-    public CountryBlock (int c_type_number, int c_number){
-        this.type = c_type_number;
-        this.number = c_number;
-        if (this.type == 5){
-            this.pirat = true;
-        }
-        else{
-            this.pirat = false;
-        }
+    public CountryBlock (int c_type_number, int c_number,int c_type_number1, int c_number1,int c_type_number2, int c_number2, int c_suradnice){
+        this.suradnice = c_suradnice;
+        myblock.put(c_type_number, c_number);
+        myblock.put(c_type_number1, c_number1);
+        myblock.put(c_type_number2, c_number2);
+    }
 
 
+    public void setMyblock(Map<Integer, Integer> myblock) {
+        this.myblock = myblock;
+    }
+
+    public void setSuradnice(int suradnice) {
+        this.suradnice = suradnice;
+    }
+
+    public void setPirat(boolean pirat) {
+        this.pirat = pirat;
+    }
+
+    public void setTyp_obydla(int typ_obydla) {
+        this.typ_obydlia = typ_obydla;
+    }
+
+    public Map<Integer, Integer> getMyblock() {
+        return myblock;
+    }
+
+    public int getSuradnice() {
+        return suradnice;
+    }
+
+    public boolean isPirat() {
+        return pirat;
+    }
+
+    public int getTyp_obydla() {
+        return typ_obydlia;
     }
 
     public boolean hasPirate() {
