@@ -25,6 +25,16 @@ public class Player{
         }
 
     }
+    public void buildTown(int cisloCountryBlocku) {
+
+        for (CountryBlock c : Game.getCountryBlocks()) {
+            if(c.getSuradnice() == cisloCountryBlocku) {
+                c.setTyp_obydla(2);
+            }
+        }
+
+    }
+
 
 
 
