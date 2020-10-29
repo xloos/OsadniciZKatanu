@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Game {
-    private static CountryBlock country_block;
+    private static ArrayList<CountryBlock> countryBlocks = new ArrayList<CountryBlock>();
     private static ArrayList<Player> players = new ArrayList<Player>();
     private int dice;
     /**
@@ -90,32 +90,35 @@ public class Game {
     public CountryBlock getCountryBlock(int c_type_number, int c_number) {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
-    @Override
-    public String toString() {
-        return "Game{" +
-                "country_block=" + country_block +
-                ", dice=" + dice +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
-        return dice == game.dice &&
-                Objects.equals(country_block, game.country_block);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(country_block, dice);
-    }
 
     public static void main(String[] args) {
         createNewGame();
 
 
+    }
+
+    public static ArrayList<CountryBlock> getCountryBlocks() {
+        return countryBlocks;
+    }
+
+    public static ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public int getDice() {
+        return dice;
+    }
+
+    public static void setCountryBlocks(ArrayList<CountryBlock> countryBlocks) {
+        Game.countryBlocks = countryBlocks;
+    }
+
+    public static void setPlayers(ArrayList<Player> players) {
+        Game.players = players;
+    }
+
+    public void setDice(int dice) {
+        this.dice = dice;
     }
 }
 

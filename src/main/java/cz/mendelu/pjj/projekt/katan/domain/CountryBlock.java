@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 public class CountryBlock {
 
+    public static Object get;
     Map<Integer,Integer> myblock = new HashMap<Integer, Integer>();
     private  int suradnice;
     private boolean pirat;

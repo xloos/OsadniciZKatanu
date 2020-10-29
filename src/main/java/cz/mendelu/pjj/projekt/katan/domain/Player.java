@@ -5,11 +5,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Player {
+public class Player{
 
     private String name;
     private HashMap<String, Integer> resources;
-    private Buildings build;
+    private ArrayList<CountryBlock> blocks = new ArrayList<CountryBlock>();
+
+    /**
+     * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
+     * @author xpavlik
+     * @version 1.0.0
+     */
+    public void buildVillage(int cisloCountryBlocku) {
+
+        for (CountryBlock c : Game.getCountryBlocks()) {
+            if(c.getSuradnice() == cisloCountryBlocku) {
+                c.setTyp_obydla(1);
+            }
+        }
+
+    }
 
 
 
@@ -77,16 +92,7 @@ public class Player {
 
     }
 
-    /**
-     * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
-     * @return Metoda vrátí true pokud má hráč všechny potřebné suroviny pro stavbu nové vesnice.
-     * @author xpavlik
-     * @version 1.0.0
-     */
-    public boolean buildVillage() {
-        throw new UnsupportedOperationException("Not implemented yet.");
 
-    }
     /**
      * Metoda na smazání hráče
      * @return vrátí true pokud byl hráč smazán.
