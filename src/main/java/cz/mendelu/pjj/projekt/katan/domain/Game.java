@@ -17,14 +17,11 @@ public class Game {
      */
     public static Game createNewGame(){
         Game hra = new Game();
-        players.add(new Player(hra.zistiMeno()));
-        players.add(new Player(hra.zistiMeno()));
-        players.add(new Player(hra.zistiMeno()));
-        players.add(new Player(hra.zistiMeno()));
-        //for (Player p : players) {
-          //  System.out.println(p.getName());
-         //   System.out.println(p.getBrick());
-       // }
+        Game.pridajHraca();
+        Game.vytvorMapu();
+        for (CountryBlock c : countryBlocks) {
+            System.out.println(c.getSuradnice());
+        }
         return hra;
 
     }
@@ -39,7 +36,7 @@ public class Game {
      * @author xloos
      * @version 1.0.0
      */
-    private String zistiMeno() {
+    private static String zistiMeno() {
         System.out.println("Zadaj meno hráča: " );
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
@@ -96,6 +93,26 @@ public class Game {
     public CountryBlock getCountryBlock(int c_type_number, int c_number) {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
+    /**
+     * @return Metóda vracia pole krajiny
+     * @version 1.0.0
+     */
+    public static void pridajHraca() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Zadaj pocet hracov: " );
+        int p = in.nextInt();
+        int pomoc = 0;
+        if (p==3 | p==4) {
+            while (pomoc!=p) {
+                players.add(new Player(Game.zistiMeno()));
+                System.out.println(players.get(pomoc).getName() );
+                pomoc++;
+            }
+        } else{
+            System.out.println("Nespravny vstup" );
+            //throw new UnsupportedOperationException("Incorrect input");
+        }
+    }
 
 
 
@@ -126,7 +143,7 @@ public class Game {
      * @return Metóda vracia pole krajiny
      * @version 1.0.0
      */
-    public void vytvorMapu() {
+    public static void vytvorMapu() {
         CountryBlock cb1 = new CountryBlock(1,10,1);
         CountryBlock cb2 = new CountryBlock(1,10,2);
         CountryBlock cb3 = new CountryBlock(1,10,5,6,3);
