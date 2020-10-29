@@ -4,9 +4,9 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Game {
-    private static ArrayList<CountryBlock> countryBlocks = new ArrayList<CountryBlock>();
+    private static ArrayList<CountryBlock> countryBlocks = new ArrayList<CountryBlock>(); //index je nastaveny o jednu menej lebo suradnice su od 1 a idexovanie je od 0
     private static ArrayList<Player> players = new ArrayList<Player>();
-    private int dice;
+    private static int dice;
     /**
      * Továrenska metóda na vytvorenie novej hry.
      * Metóda vytvorý hracie pole a rozmiestni typy krajín.
@@ -17,19 +17,29 @@ public class Game {
      */
     public static Game createNewGame(){
         Game hra = new Game();
-        Game.pridajHraca();
-        Game.vytvorMapu();
-        for (CountryBlock c : countryBlocks) {
-            System.out.println(c.getSuradnice());
-        }
+      //  Game.pridajHraca();
+          Game.vytvorMapu();
+//        for (CountryBlock c : countryBlocks) {
+//            System.out.println(c.getSuradnice());
+//        }
         return hra;
 
     }
     public static void main(String[] args) {
         createNewGame();
+        setDice(Game.diceRoll());
+        System.out.println(Game.dice);
+        setDice(Game.diceRoll());
+        System.out.println(Game.dice);
+        setDice(Game.diceRoll());
+        System.out.println(Game.dice);
+        setDice(Game.diceRoll());
+        System.out.println(Game.dice);
+
 
 
     }
+
     /**
      * Metóda na zistenie mena hráča.
      * @return Meno hráča.
@@ -50,14 +60,18 @@ public class Game {
      * @author xloos
      * @version 1.0.0
      */
-    public int diceRoll(){
+    public static int diceRoll(){
         int roll = (int)(Math.random() * 6 + 1) + (int)(Math.random() * 6 + 1);
         if (roll == 7) {
-            this.setDice(roll);
+            System.out.println("Zadal si 7 mozes posuvat pirata" );
+            Scanner in = new Scanner(System.in);
+            System.out.println("Kde chces posunut pirata: " );
+            int p = in.nextInt();
+            p--;
+            piratMove(Game.countryBlocks.get(p));
             return roll;
         }
         else {
-            this.setDice(roll);
             return roll;
         }
     }
@@ -70,8 +84,11 @@ public class Game {
      * @author xloos
      * @version 1.0.0
      */
-    public void piratMove(CountryBlock block){
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public static void piratMove(CountryBlock block){
+        block.setPirat(true);
+        System.out.println("Pirat zablokoval : " );
+        System.out.println(block.getSuradnice() );
+        System.out.println(block.hasPirate() );
     }
 
 
@@ -87,14 +104,7 @@ public class Game {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
     /**
-     * @return Metóda vracia pole krajiny
-     * @version 1.0.0
-     */
-    public CountryBlock getCountryBlock(int c_type_number, int c_number) {
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-    /**
-     * @return Metóda vracia pole krajiny
+     * Metoda na pridanie hraca do ArrayListu
      * @version 1.0.0
      */
     public static void pridajHraca() {
@@ -136,8 +146,8 @@ public class Game {
         Game.players = players;
     }
 
-    public void setDice(int dice) {
-        this.dice = dice;
+    public static void setDice(int dice) {
+        Game.dice = dice;
     }
     /**
      * @return Metóda vracia pole krajiny

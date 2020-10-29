@@ -63,7 +63,4 @@ public class CountryBlock {
         return this.pirat;
     }
 
-    public void setPirate(boolean m_pirate) {
-        this.pirat = m_pirate;
-    }
 }
