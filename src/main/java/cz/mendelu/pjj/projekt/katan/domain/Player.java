@@ -40,6 +40,13 @@ public class Player{
         return p;
     }
 
+    /**
+     * Metoda na porovnání dvou hráčů.
+     * Metoda porovná hráče na základě jmen.
+     * @return True or false, podle toho zda mají hráči stejné jméno.
+     * @author xpavlik
+     * @version 1.0.0
+     */
 
     @Override
     public boolean equals(Object obj) {
@@ -56,11 +63,14 @@ public class Player{
     }
 
     /**
-     * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
+     * Metody pro výstavbu nové vesnice nebo města, pokud má daný hráč dostatek suroviny na výstavbu.
+     * @param cisloCountryBlocku ,daný blok na kterém bude město nebo vesnice vystavěna.
      * @author xpavlik
      * @version 1.0.0
      */
     public void buildVillage(int cisloCountryBlocku) {
+
+        //TO-DO podmínka surovin na stavbu
 
         for (CountryBlock c : Game.getCountryBlocks()) {
             if(c.getSuradnice() == cisloCountryBlocku) {
@@ -71,6 +81,8 @@ public class Player{
     }
     public void buildTown(int cisloCountryBlocku) {
 
+        //TO-DO podmínka surovin na stavbu
+
         for (CountryBlock c : Game.getCountryBlocks()) {
             if(c.getSuradnice() == cisloCountryBlocku) {
                 c.setTyp_obydla(2);
@@ -79,15 +91,21 @@ public class Player{
 
     }
     /**
-     * Metoda provede výstavbu nové cesty a zjistí zda má daný hráč dostatek surovin na stavbu.
+     * Metoda provede nákup nové cesty a zjistí zda má daný hráč dostatek surovin pro nákpu.
      * @author xpavlik
      * @version 1.0.0
      */
 
     public void buyRoad() {
         this.road +=1;
-
+        //TO-DO podmínka surovin na stavbu
     }
+
+    /**
+     * Metoda vypise počet surovin daného hráče.
+     * @author xpavlik
+     * @version 1.0.0
+     */
     public void vypisPocetSurovin(){
         Set<String> klice = resources.keySet();
         for (String klic : klice){
@@ -96,7 +114,6 @@ public class Player{
     }
     /**
      * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
-     * @throws IndexOutOfBoundsException
      * @author xpavlik
      * @version 1.0.0
      */
@@ -185,6 +202,11 @@ public class Player{
                 ", blocks=" + blocks +
                 '}';
     }
+    /**
+     * Všechny potřebné gettery a settery
+     * @author xpavlik
+     * @version 1.0.0
+     */
 
     public String getName() {
         return name;
