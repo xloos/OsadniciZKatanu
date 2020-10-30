@@ -80,6 +80,7 @@ public class Player{
                     c.setTyp_obydla(1);
                 }
             }
+            setPoints(1);
         }
         else
             System.out.println("Nemáš dostatek surovin na stavbu vesnice");
@@ -99,6 +100,7 @@ public class Player{
                     c.setTyp_obydla(2);
                 }
             }
+            setPoints(2);
         }
         else
             System.out.println("Nemáš dostatek surovin na stavbu města");
@@ -245,7 +247,7 @@ public class Player{
     }
 
     public void setPoints(int points) {
-        this.points = points;
+        this.points += points;
     }
 
     public int getPoints() {
