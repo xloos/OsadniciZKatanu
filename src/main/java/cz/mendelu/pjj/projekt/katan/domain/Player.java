@@ -1,9 +1,7 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
 
 public class Player{
 
@@ -12,34 +10,9 @@ public class Player{
     private HashMap<String, Integer> resources;
     private ArrayList<CountryBlock> blocks = new ArrayList<CountryBlock>();
 
-    /**
-     * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
-     * @author xpavlik
-     * @version 1.0.0
-     */
-    public void buildVillage(int cisloCountryBlocku) {
-
-        for (CountryBlock c : Game.getCountryBlocks()) {
-            if(c.getSuradnice() == cisloCountryBlocku) {
-                c.setTyp_obydla(1);
-            }
-        }
-
-    }
-    public void buildTown(int cisloCountryBlocku) {
-
-        for (CountryBlock c : Game.getCountryBlocks()) {
-            if(c.getSuradnice() == cisloCountryBlocku) {
-                c.setTyp_obydla(2);
-            }
-        }
-
-    }
-
     public Player(String name) {
 
         this.name = name;
-
         resources = new HashMap<String, Integer>(5);
         resources.put("WOOD",1);
         resources.put("GRAIN",1);
@@ -63,6 +36,7 @@ public class Player{
         Player p = new Player(name);
         return p;
     }
+
     //equals
     public boolean equals(Object obj) {
         if(obj instanceof Player) {
@@ -71,25 +45,29 @@ public class Player{
         }
         return false;
     }
-
-
     /**
-     * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
-     * @param put surovina, kterou bude hráč měnit.
-     * @param get surovina, kterou hráč chce dostat.
-     * @throws IndexOutOfBoundsException
+     * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
      * @author xpavlik
      * @version 1.0.0
      */
+    public void buildVillage(int cisloCountryBlocku) {
 
-   /* public void trade(resources, String get) {
-
-        throw new UnsupportedOperationException("Not implemented yet.");
+        for (CountryBlock c : Game.getCountryBlocks()) {
+            if(c.getSuradnice() == cisloCountryBlocku) {
+                c.setTyp_obydla(1);
+            }
+        }
 
     }
-    */
+    public void buildTown(int cisloCountryBlocku) {
 
+        for (CountryBlock c : Game.getCountryBlocks()) {
+            if(c.getSuradnice() == cisloCountryBlocku) {
+                c.setTyp_obydla(2);
+            }
+        }
 
+    }
     /**
      * Metoda provede výstavbu nové cesty a zjistí zda má daný hráč dostatek surovin na stavbu.
      * @author xpavlik
@@ -100,6 +78,65 @@ public class Player{
         this.road +=1;
 
     }
+    public void vypisPocetSurovin(){
+        Set<String> klice = resources.keySet();
+        for (String klic : klice){
+            System.out.println(klic+"\t"+resources.get(klic));
+        }
+    }
+    /**
+     * Metoda provede výměnu hráčových surovin. Záměna bude v úrčitém poměru, který se předem stanový.
+     * @throws IndexOutOfBoundsException
+     * @author xpavlik
+     * @version 1.0.0
+     */
+
+    public void trade() {
+        System.out.println("Mění se vždy v poměru 1:4 ! Musíš mít min. 4 stejné suroviny, aby si získal jinou !");
+        System.out.println("-----------------------------------------------------------------------------------");
+
+        System.out.println("Napiš číslo suroviny, kterou chceš měnit: ");
+        System.out.println( " [1] - WOOD\n [2] - GRAIN\n [3] - STONE\n [4] - BRICK\n [5] - SHEEP\n");
+        Scanner sc = new Scanner(System.in);
+        int getSurovina = sc.nextInt();
+
+        System.out.println("Napiš číslo suroviny, kterou chceš dostat: ");
+        System.out.println( " [1] - WOOD\n [2] - GRAIN\n [3] - STONE\n [4] - BRICK\n [5] - SHEEP\n");
+        int putSurovina = sc.nextInt();
+
+        switch(getSurovina) {
+            case 1:
+                if(resources.get("GRAIN")>=4 )
+                break;
+            case 2:
+                // code block
+                break;
+            case 3:
+                // code block
+                break;
+            case 4:
+                // code block
+                break;
+            case 5:
+                // code block
+                break;
+            default:
+                // code block
+        }
+
+
+
+
+
+
+        resources.put("WOOD", resources.get("WOOD") + 1);
+
+
+    }
+
+
+
+
 
     public String getName() {
         return name;
@@ -124,6 +161,7 @@ public class Player{
 
         System.out.println(p1.equals(p2));
         System.out.println(p1.equals(p3));
+        p1.trade();
     }
 
 }
