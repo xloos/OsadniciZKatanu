@@ -1,6 +1,8 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
 public class CountryBlock {
 
     public static Object get;
@@ -63,4 +65,29 @@ public class CountryBlock {
         return this.pirat;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CountryBlock that = (CountryBlock) o;
+        return suradnice == that.suradnice &&
+                pirat == that.pirat &&
+                typ_obydlia == that.typ_obydlia &&
+                Objects.equals(myblock, that.myblock);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(myblock, suradnice, pirat, typ_obydlia);
+    }
+
+    @Override
+    public String toString() {
+        return "CountryBlock{" +
+                "myblock=" + myblock +
+                ", suradnice=" + suradnice +
+                ", pirat=" + pirat +
+                ", typ_obydlia=" + typ_obydlia +
+                '}';
+    }
 }

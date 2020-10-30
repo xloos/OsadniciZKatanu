@@ -7,6 +7,18 @@ public class Game {
     private static ArrayList<CountryBlock> countryBlocks = new ArrayList<CountryBlock>(); //index je nastaveny o jednu menej lebo suradnice su od 1 a idexovanie je od 0
     private static ArrayList<Player> players = new ArrayList<Player>();
     private static int dice;
+
+    /**
+     * Hlavná spúšťacia metóda.
+     * @author xloos
+     * @version 1.0.0
+     */
+    public static void main(String[] args) {
+        createNewGame();
+        setDice(Game.diceRoll());
+        System.out.println(Game.dice);
+    }
+
     /**
      * Továrenska metóda na vytvorenie novej hry.
      * Metóda vytvorý hracie pole a rozmiestni typy krajín.
@@ -21,11 +33,7 @@ public class Game {
         Game.vytvorMapu();
         return hra;
     }
-    public static void main(String[] args) {
-        createNewGame();
-        setDice(Game.diceRoll());
-        System.out.println(Game.dice);
-    }
+
 
     /**
      * Metóda na zistenie mena hráča.
