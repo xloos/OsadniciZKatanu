@@ -69,27 +69,41 @@ public class Player{
      * @version 1.0.0
      */
     public void buildVillage(int cisloCountryBlocku) {
+        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1) {
+            resources.put("WOOD", resources.get("WOOD") - 1);
+            resources.put("GRAIN", resources.get("GRAIN") - 1);
+            resources.put("BRICK", resources.get("BRICK") - 1);
+            resources.put("SHEEP", resources.get("SHEEP") - 1);
 
-        //TO-DO podmínka surovin na stavbu
-
-        for (CountryBlock c : Game.getCountryBlocks()) {
-            if(c.getSuradnice() == cisloCountryBlocku) {
-                c.setTyp_obydla(1);
+            for (CountryBlock c : Game.getCountryBlocks()) {
+                if(c.getSuradnice() == cisloCountryBlocku) {
+                    c.setTyp_obydla(1);
+                }
             }
         }
+        else
+            System.out.println("Nemáš dostatek surovin na stavbu vesnice");
+
+
 
     }
     public void buildTown(int cisloCountryBlocku) {
 
-        //TO-DO podmínka surovin na stavbu
+        if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3) {
 
-        for (CountryBlock c : Game.getCountryBlocks()) {
-            if(c.getSuradnice() == cisloCountryBlocku) {
-                c.setTyp_obydla(2);
+            resources.put("GRAIN", resources.get("GRAIN") - 2);
+            resources.put("STONE", resources.get("STONE") - 3);
+
+            for (CountryBlock c : Game.getCountryBlocks()) {
+                if (c.getSuradnice() == cisloCountryBlocku) {
+                    c.setTyp_obydla(2);
+                }
             }
         }
-
+        else
+            System.out.println("Nemáš dostatek surovin na stavbu města");
     }
+
     /**
      * Metoda provede nákup nové cesty a zjistí zda má daný hráč dostatek surovin pro nákpu.
      * @author xpavlik
@@ -97,8 +111,14 @@ public class Player{
      */
 
     public void buyRoad() {
-        this.road +=1;
-        //TO-DO podmínka surovin na stavbu
+        if (resources.get("WOOD") >= 1 & resources.get("BRICK") >= 1) {
+
+            resources.put("WOOD", resources.get("WOOD") - 1);
+            resources.put("BRICK", resources.get("BRICK") - 1);
+            this.road += 1;
+        }
+        else
+            System.out.println("Nemas dostatek surovin na koupi cesty");
     }
 
     /**
