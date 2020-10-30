@@ -1,5 +1,6 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import javax.print.DocFlavor;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -14,11 +15,11 @@ public class Player{
 
         this.name = name;
         resources = new HashMap<String, Integer>(5);
-        resources.put("WOOD",1);
-        resources.put("GRAIN",1);
-        resources.put("STONE",1);
-        resources.put("BRICK",1);
-        resources.put("SHEEP",1);
+        resources.put("WOOD",5);
+        resources.put("GRAIN",5);
+        resources.put("STONE",5);
+        resources.put("BRICK",5);
+        resources.put("SHEEP",5);
     }
 
 
@@ -103,35 +104,67 @@ public class Player{
         System.out.println("Napiš číslo suroviny, kterou chceš dostat: ");
         System.out.println( " [1] - WOOD\n [2] - GRAIN\n [3] - STONE\n [4] - BRICK\n [5] - SHEEP\n");
         int putSurovina = sc.nextInt();
+        String surovina = null;
+        switch (putSurovina){
+            case 1: surovina = "WOOD";
+            break;
+            case 2: surovina = "GRAIN";
+                break;
+            case 3: surovina = "STONE";
+                break;
+            case 4: surovina = "BRICK";
+                break;
+            case 5: surovina = "SHEEP";
+                break;
+            default:
+                System.out.println("Zadal si číslo mimo rozsah");
+        }
 
         switch(getSurovina) {
             case 1:
-                if(resources.get("GRAIN")>=4 )
+                if(resources.get("WOOD")>=4 ) {
+                    resources.put("WOOD", resources.get("WOOD") - 4);
+                    resources.put(surovina, resources.get(surovina) + 1);
+                }
+                else
+                    System.out.println("Nemas dostatek dreva na vymenu");
+
                 break;
             case 2:
-                // code block
+                if(resources.get("GRAIN")>=4 ) {
+                    resources.put("GRAIN", resources.get("GRAIN") - 4);
+                    resources.put(surovina, resources.get(surovina) + 1);
+                }
+                else
+                    System.out.println("Nemas dostatek obilí na vymenu");
                 break;
             case 3:
-                // code block
+                if(resources.get("STONE")>=4 ) {
+                    resources.put("STONE", resources.get("STONE") - 4);
+                    resources.put(surovina, resources.get(surovina) + 1);
+                }
+                else
+                    System.out.println("Nemas dostatek kamene na vymenu");
                 break;
             case 4:
-                // code block
+                if(resources.get("BRICK")>=4 ) {
+                    resources.put("BRICK", resources.get("BRICK") - 4);
+                    resources.put(surovina, resources.get(surovina) + 1);
+                }
+                else
+                    System.out.println("Nemas dostatek cihel na vymenu");
                 break;
             case 5:
-                // code block
+                if(resources.get("SHEEP")>=4 ) {
+                    resources.put("SHEEP", resources.get("SHEEP") - 4);
+                    resources.put(surovina, resources.get(surovina) + 1);
+                }
+                else
+                    System.out.println("Nemas dostatek ovcí na vymenu");
                 break;
             default:
-                // code block
+                System.out.println("Zadal si číslo mimo rozsah");
         }
-
-
-
-
-
-
-        resources.put("WOOD", resources.get("WOOD") + 1);
-
-
     }
 
 
@@ -161,7 +194,11 @@ public class Player{
 
         System.out.println(p1.equals(p2));
         System.out.println(p1.equals(p3));
+        p1.vypisPocetSurovin();
         p1.trade();
+        p1.vypisPocetSurovin();
+        p1.trade();
+        p1.vypisPocetSurovin();
     }
 
 }
