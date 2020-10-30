@@ -39,7 +39,8 @@ public class Player{
         return p;
     }
 
-    //equals
+
+    @Override
     public boolean equals(Object obj) {
         if(obj instanceof Player) {
             Player p = (Player) obj;
@@ -47,6 +48,12 @@ public class Player{
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, road, resources, blocks);
+    }
+
     /**
      * Metoda provede výstavbu nové vesnice, pokud má daný hráč dostatek suroviny na výstavbu.
      * @author xpavlik
