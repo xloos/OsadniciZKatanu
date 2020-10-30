@@ -8,12 +8,14 @@ public class Player{
 
     private String name;
     private int road = 0;
+    private int points = 0;
     private HashMap<String, Integer> resources;
     private ArrayList<CountryBlock> blocks;
 
     public Player(String name) {
 
         this.name = name;
+        this.points = 0;
         resources = new HashMap<String, Integer>(5);
         blocks = new ArrayList<CountryBlock>();
         resources.put("WOOD",5);
@@ -23,10 +25,9 @@ public class Player{
         resources.put("SHEEP",5);
     }
 
-
     /**
      * Tovární metoda na vytvoření hráče.
-     * Metoda vytvoří nového hráče a nastaví atributy resources, buildings a points.
+     * Metoda vytvoří nového hráče a nastaví atributy resources, road a points a coutnry block.
      * @param name si daný hráč zvolí jméno.
      * @return Nového hráče.
      * @author xpavlik
@@ -199,6 +200,14 @@ public class Player{
 
     public int getRoad() {
         return road;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     public static void main(String[] args) {
