@@ -17,27 +17,14 @@ public class Game {
      */
     public static Game createNewGame(){
         Game hra = new Game();
-      //  Game.pridajHraca();
-          Game.vytvorMapu();
-//        for (CountryBlock c : countryBlocks) {
-//            System.out.println(c.getSuradnice());
-//        }
+        Game.pridajHraca();
+        Game.vytvorMapu();
         return hra;
-
     }
     public static void main(String[] args) {
         createNewGame();
         setDice(Game.diceRoll());
         System.out.println(Game.dice);
-        setDice(Game.diceRoll());
-        System.out.println(Game.dice);
-        setDice(Game.diceRoll());
-        System.out.println(Game.dice);
-        setDice(Game.diceRoll());
-        System.out.println(Game.dice);
-
-
-
     }
 
     /**
@@ -95,13 +82,19 @@ public class Game {
     /**
      * Metóda na ukončenie hry.
      * Spočíta sa počet získaných bodov.
-     * @return Metóda vracia true pokial bola ukončená korektne .
+     * @return Metóda vracia true pokial bola ukončená korektne.
      * @author xloos
      * @version 1.0.0
      */
-    public boolean endGame(){
-
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public static boolean endGame(){
+            for (Player pl : Game.getPlayers()) {
+                if (pl.getPoints() >= 10) {
+                    System.out.println("Hra skoncila, vzhral hrac s menom: " );
+                    System.out.println(pl.getName());
+                    return true;
+                }
+            }
+        return false;
     }
     /**
      * Metoda na pridanie hraca do ArrayListu
@@ -124,7 +117,7 @@ public class Game {
         }
     }
     /**
-     * @return Metóda vracia pole krajiny
+     * Metoda vytvori hracie prostredie.
      * @version 1.0.0
      */
     public static void vytvorMapu() {

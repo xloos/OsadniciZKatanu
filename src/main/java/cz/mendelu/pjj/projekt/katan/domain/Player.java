@@ -15,7 +15,6 @@ public class Player{
     public Player(String name) {
 
         this.name = name;
-        this.points = 0;
         resources = new HashMap<String, Integer>(5);
         blocks = new ArrayList<CountryBlock>();
         resources.put("WOOD",5);
@@ -81,6 +80,9 @@ public class Player{
                 }
             }
             setPoints(1);
+            if (Game.endGame() == true){
+                System.out.println("Konec hry");
+            }
         }
         else
             System.out.println("Nemáš dostatek surovin na stavbu vesnice");
@@ -101,6 +103,9 @@ public class Player{
                 }
             }
             setPoints(2);
+            if (Game.endGame() == true){
+                System.out.println("Konec hry");
+            }
         }
         else
             System.out.println("Nemáš dostatek surovin na stavbu města");
