@@ -9,12 +9,13 @@ public class Player{
     private String name;
     private int road = 0;
     private HashMap<String, Integer> resources;
-    private ArrayList<CountryBlock> blocks = new ArrayList<CountryBlock>();
+    private ArrayList<CountryBlock> blocks;
 
     public Player(String name) {
 
         this.name = name;
         resources = new HashMap<String, Integer>(5);
+        blocks = new ArrayList<CountryBlock>();
         resources.put("WOOD",5);
         resources.put("GRAIN",5);
         resources.put("STONE",5);
@@ -167,9 +168,15 @@ public class Player{
         }
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", road=" + road +
+                ", resources=" + resources +
+                ", blocks=" + blocks +
+                '}';
+    }
 
     public String getName() {
         return name;
@@ -194,11 +201,7 @@ public class Player{
 
         System.out.println(p1.equals(p2));
         System.out.println(p1.equals(p3));
-        p1.vypisPocetSurovin();
-        p1.trade();
-        p1.vypisPocetSurovin();
-        p1.trade();
-        p1.vypisPocetSurovin();
+        p1.toString();
     }
 
 }
