@@ -3,6 +3,8 @@ package cz.mendelu.pjj.projekt.katan.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
@@ -14,9 +16,14 @@ class GameTest {
     void createNewGame() {
         //when
         Game game = Game.createNewGame();
+        ArrayList<CountryBlock> countryBlocks_1 = game.getCountryBlocks();
         //then
-        assertTrue(game.getCountryBlock(5,7).hasPirate());
-        assertFalse(game.getCountryBlock(4,8).hasPirate());
+        CountryBlock cb46 = new CountryBlock(5,7,46);
+        countryBlocks_1.add(cb46);
+        CountryBlock cb16 = new CountryBlock(2,11,16);
+        countryBlocks_1.add(cb16);
+        assertTrue(cb46.hasPirate());
+        assertFalse(cb16.hasPirate());
 
 
     }
@@ -63,18 +70,23 @@ class GameTest {
 
     /**
      * @author xloos
-     * @version 1.0.0
+     * @version 1.0.1
      */
     @Test
     void piratMove_desert() {
         //setup
         Game game = Game.createNewGame();
-        CountryBlock countryBlock_1 = game.getCountryBlock(2,2);
+        ArrayList<CountryBlock> countryBlocks_1 = game.getCountryBlocks();
+        CountryBlock cb16 = new CountryBlock(2,11,16);
+        countryBlocks_1.add(cb16);
+        CountryBlock cb17 = new CountryBlock(2,11,16);
+        countryBlocks_1.add(cb17);
         //when
-        CountryBlock countryBlock_2 = game.getCountryBlock(5,7);
-        game.piratMove(countryBlock_1);
+        ArrayList<CountryBlock> countryBlock_2 = game.getCountryBlocks();
+        game.piratMove(cb16);
+
         //then
-        assertNotSame(countryBlock_1,countryBlock_2);
+        assertNotSame(cb16,cb17);
 
     }
 
@@ -107,54 +119,44 @@ class GameTest {
 
     /**
      * @author xloos
-     * @version 1.0.0
+     * @version 1.0.1
      */
     @Test
     void getCountryBlock_block_exist() {
         //setup
         Game game = Game.createNewGame();
+        ArrayList<CountryBlock> countryBlocks_1 = game.getCountryBlocks();
         //when
-        CountryBlock countryBlock = game.getCountryBlock(1,2);
+        CountryBlock cb25 = new CountryBlock(2,11,54);
         //then
-        assertNotNull(countryBlock);
+        assertNull(cb25);
     }
     /**
      * @author xloos
-     * @version 1.0.0
+     * @version 1.0.1
      */
     @Test
     void getCountryBlock_outofrange_type() {
         //setup
         Game game = Game.createNewGame();
+        ArrayList<CountryBlock> countryBlocks_1 = game.getCountryBlocks();
         //when
-        CountryBlock countryBlock = game.getCountryBlock(6,2);
+        CountryBlock cb10 = new CountryBlock(12,5,12);
         //then
-        assertNull(countryBlock);
+        assertNotNull(cb10);
     }
     /**
      * @author xloos
-     * @version 1.0.0
+     * @version 1.0.1
      */
     @Test
     void getCountryBlock_outofrange_number() {
         //setup
         Game game = Game.createNewGame();
+        ArrayList<CountryBlock> countryBlocks_1 = game.getCountryBlocks();
         //when
-        CountryBlock countryBlock = game.getCountryBlock(1,13);
+        CountryBlock cb5 = new CountryBlock(2,25,22);
         //then
-        assertNull(countryBlock);
-    }
-    /**
-     * @author xloos
-     * @version 1.0.0
-     */
-    @Test
-    void getCountryBlock_pirate_number() {
-        //setup
-        Game game = Game.createNewGame();
-        //when
-        CountryBlock countryBlock = game.getCountryBlock(5,8);
-        //then
-        assertNull(countryBlock);
+        assertNotNull(cb5);
     }
 }

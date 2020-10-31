@@ -253,10 +253,6 @@ public class Game {
         return dice;
     }
 
-    public static void setCountryBlocks(ArrayList<CountryBlock> countryBlocks) {
-        Game.countryBlocks = countryBlocks;
-    }
-
     public static void setPlayers(ArrayList<Player> players) {
         Game.players = players;
     }
