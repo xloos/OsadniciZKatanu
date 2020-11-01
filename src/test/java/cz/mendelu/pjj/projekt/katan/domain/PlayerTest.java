@@ -1,6 +1,10 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Resources;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +20,7 @@ class PlayerTest {
         Player p_1 = Player.createNewPlayer("Rick");
         Player p_2 = Player.createNewPlayer("Morty");
         //then
-        assertNotSame(p_1,p_2);
+        assertNotSame(p_1, p_2);
     }
 
     /**
@@ -40,10 +44,11 @@ class PlayerTest {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
         //when
-        p_1.trade("Wood","Stone");
+        p_1.trade();
         //then
-        assertEquals("Wood","Stone");
+        assertEquals("Wood", "Stone");
     }
+
     /**
      * @author xpavlik
      * @version 1.0.0
@@ -55,7 +60,32 @@ class PlayerTest {
         //when + then
         assertThrows(
                 IndexOutOfBoundsException.class,
-                () -> p_1.trade("Gold", "Iron"));
+                () -> p_1.trade());
+    }
+
+    /**
+     * @author xpavlik
+     * @version 1.0.1
+     */
+    @Test
+    void getBlocks_outofrange_type() {
+        //setup
+        Player p1 = Player.createNewPlayer("Rick");
+        ArrayList<CountryBlock> countryBlocks_1 = p1.getBlocks();
+        //when
+        CountryBlock cb7 = new CountryBlock(9,3,11);
+        //then
+        assertNotNull(cb7);
+    }
+    /**
+     * @author xpavlik
+     * @version 1.0.0
+     */
+    @Test
+    void setPoints() {
+        Player p1 = Player.createNewPlayer("Rick");
+        p1.setPoints(1);
+        assertEquals(1, p1.getPoints());
     }
 
     /**
@@ -63,35 +93,28 @@ class PlayerTest {
      * @version 1.0.0
      */
     @Test
-    void buildRoad() {
+   void buydRoad() {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
         //when
-        p_1.buildRoad();
+        p_1.buyRoad();
         //then
-        assertTrue(p_1.buildRoad());
+        assertEquals(1, p_1.getRoad());
     }
 
     /**
      * @author xpavlik
      * @version 1.0.0
      */
-    @Test
+   @Test
+
     void buildVillage() {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
         //when
-        p_1.buildVillage();
+        p_1.buildVillage(4);
         //then
-        assertTrue(p_1.buildVillage());
+        assertNull(p_1.getBlocks());
     }
 
-
-    @Test
-    void deletePlayer() {
-        //when
-        Player p_1 = Player.createNewPlayer("Rick");
-        assertEquals(p_1.deletePlayer(),1);
-
-    }
 }

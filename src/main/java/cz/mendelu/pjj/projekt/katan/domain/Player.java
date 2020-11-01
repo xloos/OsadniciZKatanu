@@ -259,14 +259,21 @@ public class Player{
         return points;
     }
 
+    public HashMap<String, Integer> getResources() {
+        return resources;
+    }
+
+    public ArrayList<CountryBlock> getBlocks() {
+        return blocks;
+    }
+
     public static void main(String[] args) {
         Player p1 = new Player("Jirka");
         Player p2 = new Player("Pepa");
         Player p3 = new Player("Jirka");
-
         System.out.println(p1.equals(p2));
         System.out.println(p1.equals(p3));
-        p1.toString();
     }
+
 
 }
