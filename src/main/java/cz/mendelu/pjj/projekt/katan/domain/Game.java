@@ -3,10 +3,11 @@ package cz.mendelu.pjj.projekt.katan.domain;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Game {
+public class Game{
     private static ArrayList<CountryBlock> countryBlocks = new ArrayList<CountryBlock>(); //index je nastaveny o jednu menej lebo suradnice su od 1 a idexovanie je od 0
     private static ArrayList<Player> players = new ArrayList<Player>();
     private static int dice;
+
 
     /**
      * Hlavná spúšťacia metóda.
