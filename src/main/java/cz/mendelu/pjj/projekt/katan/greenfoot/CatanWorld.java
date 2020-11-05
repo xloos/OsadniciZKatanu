@@ -5,6 +5,8 @@ import greenfoot.World;
 public class CatanWorld extends World {
 
     public CatanWorld() {
-        super(1200, 900, 1);
+        super(1456, 1154, 1);
+        setBackground("images/mapa.jpg");
+
     }
 }
