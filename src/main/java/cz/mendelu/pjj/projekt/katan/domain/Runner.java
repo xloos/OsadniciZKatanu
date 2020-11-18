@@ -9,13 +9,15 @@ public class Runner extends GreenfootRunner {
     static {
         bootstrap(Runner.class,
                 Configuration.forWorld(CatanWorld.class)
-        .projectName("CATAN")
-                .hideControls(false));
+                .projectName("CATAN"));
+       // .hideControls(false)); zatail necham zapnute controls
+
     }
 
     public static void main(String[] args) {
 
         GreenfootRunner.main(args);
+        Game.createNewGame();
     }
 
 

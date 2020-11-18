@@ -14,11 +14,11 @@ public class Game{
      * @author xloos
      * @version 1.0.0
      */
-    public static void main(String[] args) {
-        createNewGame();
-        setDice(Game.diceRoll());
-        System.out.println(Game.dice);
-    }
+//    public static void main(String[] args) {
+//        createNewGame();
+//        setDice(Game.diceRoll());
+//        System.out.println(Game.dice);
+//    }
 
     /**
      * Továrenska metóda na vytvorenie novej hry.
