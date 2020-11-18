@@ -1,9 +1,11 @@
 package cz.mendelu.pjj.projekt.katan.domain;
+import greenfoot.Actor;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class CountryBlock {
+public class CountryBlock extends Actor {
 
     public static Object get;
     Map<Integer,Integer> myblock = new HashMap<Integer, Integer>();
@@ -14,11 +16,13 @@ public class CountryBlock {
     public CountryBlock (int c_type_number, int c_number, int c_suradnice){
        this.suradnice = c_suradnice;
         myblock.put(c_type_number, c_number);
+        setImage("images/build2.png");
     }
     public CountryBlock (int c_type_number, int c_number,int c_type_number1, int c_number1, int c_suradnice){
         this.suradnice = c_suradnice;
         myblock.put(c_type_number, c_number);
         myblock.put(c_type_number1, c_number1);
+        setImage("images/build2.png");
     }
 
     public CountryBlock (int c_type_number, int c_number,int c_type_number1, int c_number1,int c_type_number2, int c_number2, int c_suradnice){
@@ -26,6 +30,7 @@ public class CountryBlock {
         myblock.put(c_type_number, c_number);
         myblock.put(c_type_number1, c_number1);
         myblock.put(c_type_number2, c_number2);
+        setImage("images/build2.png");
     }
 
 
