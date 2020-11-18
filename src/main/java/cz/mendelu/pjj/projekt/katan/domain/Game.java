@@ -30,7 +30,7 @@ public class Game{
      */
     public static Game createNewGame(){
         Game hra = new Game();
-        //Game.pridajHraca();
+       //Game.pridajHraca();
         Game.vytvorMapu();
         return hra;
     }
@@ -42,12 +42,12 @@ public class Game{
      * @author xloos
      * @version 1.0.0
      */
-    private static String zistiMeno() {
-        System.out.println("Zadaj meno hráča: " );
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        return input;
-    }
+//    private static String zistiMeno() {
+//        System.out.println("Zadaj meno hráča: " );
+//        Scanner sc = new Scanner(System.in);
+//        String input = sc.nextLine();
+//        return input;
+//    }
 
 
     /**
@@ -110,21 +110,12 @@ public class Game{
      * @version 1.0.0
      */
     public static void pridajHraca() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Zadaj pocet hracov: " );
-        int p = in.nextInt();
-        int pomoc = 0;
-        if (p==3 | p==4) {
-            while (pomoc!=p) {
-                players.add(new Player(Game.zistiMeno()));
-                System.out.println(players.get(pomoc).getName() );
-                pomoc++;
-            }
-        } else{
-            System.out.println("Nespravny vstup" );
-            //throw new UnsupportedOperationException("Incorrect input");
-        }
+                players.add(new Player("Player1"));
+                players.add(new Player("Player2"));
+                players.add(new Player("Player3"));
+                players.add(new Player("Player4"));
     }
+
     /**
      * Metoda vytvori hracie prostredie.
      * @version 1.0.0

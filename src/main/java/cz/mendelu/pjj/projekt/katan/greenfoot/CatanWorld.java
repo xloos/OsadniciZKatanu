@@ -1,6 +1,9 @@
 package cz.mendelu.pjj.projekt.katan.greenfoot;
 
 import cz.mendelu.pjj.projekt.katan.domain.Game;
+import cz.mendelu.pjj.projekt.katan.domain.Menu;
+import cz.mendelu.pjj.projekt.katan.domain.PlayButton;
+import greenfoot.Greenfoot;
 import greenfoot.World;
 import java.util.ArrayList;
 
@@ -67,18 +70,13 @@ public class CatanWorld extends World {
         addObject(Game.countryBlocks.get(53), 875,833);
 
 
-
-
-
-
-
-
-
-
-
-
+        Menu menu = new Menu();
+        addObject(menu, 597,475);
+        PlayButton p_button = new PlayButton();
+        addObject(p_button, 615,350);
 
 
 
     }
+
 }

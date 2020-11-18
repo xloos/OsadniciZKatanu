@@ -18,7 +18,7 @@ public class Runner extends GreenfootRunner {
     public static void main(String[] args) {
 
         GreenfootRunner.main(args);
-
+        Game.createNewGame();
 
 
     }
