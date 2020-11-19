@@ -2,8 +2,8 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 import greenfoot.Actor;
 
-public class List extends Actor {
-    public List() {
+public class ListButton extends Actor {
+    public ListButton() {
         setImage("images/list.png");
     }
 }
