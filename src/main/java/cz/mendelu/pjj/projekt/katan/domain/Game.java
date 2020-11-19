@@ -110,10 +110,10 @@ public class Game{
      * @version 1.0.0
      */
     public static void pridajHraca() {
-                players.add(new Player("Player1"));
-                players.add(new Player("Player2"));
-                players.add(new Player("Player3"));
-                players.add(new Player("Player4"));
+                players.add(new Player("Hrac1"));
+                players.add(new Player("Hrac2"));
+                players.add(new Player("Hrac3"));
+                players.add(new Player("Hrac4"));
     }
 
     /**
