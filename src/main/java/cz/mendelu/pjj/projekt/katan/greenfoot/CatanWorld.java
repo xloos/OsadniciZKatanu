@@ -77,17 +77,26 @@ public class CatanWorld extends World {
         addObject(pravidla, 599,475);
 
     }
-//Metoda na spustenie hry v menu
+    /**
+     * Metóda na spustenie hry
+     * V prvej fáze sa spúšťa hra z menu.
+     * @author xloos
+     * @version 1.0.0
+     */
     @Override
     public void act() {
         super.act();
+        /**
+         * Prvá fáza - spustenie hry z menu.
+         */
         if (Greenfoot.mouseClicked(p))
         {
             removeObject(p);
             removeObject(m);
             removeObject(l);
             removeObject(pravidla);
-
+            Game.createNewGame();
         }
+
     }
 }

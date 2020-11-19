@@ -4,7 +4,7 @@ import greenfoot.Actor;
 
 public class Rules extends Actor {
     public Rules() {
-        setImage("images/****.jpg");
+       // setImage("images/****.jpg");
 
     }
 }
