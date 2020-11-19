@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 public class CatanWorld extends World {
 
+
+    PlayButton p = new PlayButton();
+    Menu m = new Menu();
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -69,14 +72,18 @@ public class CatanWorld extends World {
         addObject(Game.countryBlocks.get(52), 790,880);
         addObject(Game.countryBlocks.get(53), 875,833);
 
-
-        Menu menu = new Menu();
-        addObject(menu, 597,475);
-        PlayButton p_button = new PlayButton();
-        addObject(p_button, 615,350);
-
-
+        addObject(m, 597,475);
+        addObject(p, 615,350);
 
     }
-
+//Metoda na spustenie hry v menu
+    @Override
+    public void act() {
+        super.act();
+        if (Greenfoot.mouseClicked(p))
+        {
+            removeObject(p);
+            removeObject(m);
+        }
+    }
 }

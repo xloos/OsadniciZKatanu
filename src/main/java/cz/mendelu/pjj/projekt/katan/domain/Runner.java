@@ -2,6 +2,7 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 import bh.greenfoot.runner.GreenfootRunner;
 import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
+import greenfoot.Greenfoot;
 import greenfoot.World;
 
 public class Runner extends GreenfootRunner {
