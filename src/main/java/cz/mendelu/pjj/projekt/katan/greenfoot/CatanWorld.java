@@ -10,6 +10,8 @@ public class CatanWorld extends World {
     Menu m = new Menu();
     ListButton l = new ListButton();
     Rules pravidla = new Rules();
+    PlayerProfile playerProfile= new PlayerProfile();
+    X x= new X();
 
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
@@ -74,7 +76,7 @@ public class CatanWorld extends World {
         addObject(m, 597,475);
         addObject(p, 615,350);
         addObject(l, 1100,100);
-        addObject(pravidla, 599,475);
+
 
     }
     /**
@@ -89,6 +91,18 @@ public class CatanWorld extends World {
         /**
          * Prvá fáza - spustenie hry z menu.
          */
+        if (Greenfoot.mouseClicked(l))
+        {
+            addObject(pravidla, 599,475);
+            addObject(x, 1100,850);
+
+        }
+        if (Greenfoot.mouseClicked(x))
+        {
+            removeObject(pravidla);
+            removeObject(x);
+        }
+
         if (Greenfoot.mouseClicked(p))
         {
             removeObject(p);
@@ -96,6 +110,7 @@ public class CatanWorld extends World {
             removeObject(l);
             removeObject(pravidla);
             Game.createNewGame();
+            addObject(playerProfile, 599,475);
         }
 
     }

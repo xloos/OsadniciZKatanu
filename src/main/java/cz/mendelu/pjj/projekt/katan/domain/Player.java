@@ -1,10 +1,12 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import greenfoot.Actor;
+
 import javax.print.DocFlavor;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class Player{
+public class Player extends Actor {
 
     private String name;
     private int road = 4;
