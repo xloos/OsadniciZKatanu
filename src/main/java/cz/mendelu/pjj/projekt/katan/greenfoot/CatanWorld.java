@@ -12,7 +12,7 @@ public class CatanWorld extends World {
     Rules pravidla = new Rules();
     PlayerProfile playerProfile= new PlayerProfile();
     X x= new X();
-
+    String pod = "pod";
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -78,6 +78,7 @@ public class CatanWorld extends World {
         addObject(l, 1100,100);
 
 
+
     }
     /**
      * Metóda na spustenie hry
@@ -88,6 +89,9 @@ public class CatanWorld extends World {
     @Override
     public void act() {
         super.act();
+        vypisHracInfo();
+
+
         /**
          * Prvá fáza - spustenie hry z menu.
          */
@@ -109,9 +113,32 @@ public class CatanWorld extends World {
             removeObject(m);
             removeObject(l);
             removeObject(pravidla);
-            Game.createNewGame();
+
             addObject(playerProfile, 599,475);
+
         }
 
+    }
+
+    private void vypisHracInfo() {
+        showText(Game.players.get(0).getName(), 100, 100);
+        showText("Pocet bodov:"+Game.players.get(0).getPoints(), 100, 120);
+        showText("Pocet ciest:"+Game.players.get(0).getRoad(), 100, 140);
+        showText("Suroviny:"+Game.players.get(0).getResources(), 250, 160);
+
+        showText(Game.players.get(1).getName(), 800, 100);
+        showText("Pocet bodov:"+Game.players.get(1).getPoints(), 800, 120);
+        showText("Pocet ciest:"+Game.players.get(1).getRoad(), 800, 140);
+        showText("Suroviny:"+Game.players.get(1).getResources(), 950, 160);
+
+        showText(Game.players.get(2).getName(), 100, 800);
+        showText("Pocet bodov:"+Game.players.get(2).getPoints(), 100, 820);
+        showText("Pocet ciest:"+Game.players.get(2).getRoad(), 100, 840);
+        showText("Suroviny:"+Game.players.get(2).getResources(), 250, 860);
+
+        showText(Game.players.get(3).getName(), 800, 800);
+        showText("Pocet bodov:"+Game.players.get(3).getPoints(), 800, 820);
+        showText("Pocet ciest:"+Game.players.get(3).getRoad(), 800, 840);
+        showText("Suroviny:"+Game.players.get(3).getResources(), 950, 860);
     }
 }

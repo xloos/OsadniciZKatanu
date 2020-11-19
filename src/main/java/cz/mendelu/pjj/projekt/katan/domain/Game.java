@@ -30,7 +30,7 @@ public class Game{
      */
     public static Game createNewGame(){
         Game hra = new Game();
-       //Game.pridajHraca();
+       Game.pridajHraca();
         Game.vytvorMapu();
         return hra;
     }
