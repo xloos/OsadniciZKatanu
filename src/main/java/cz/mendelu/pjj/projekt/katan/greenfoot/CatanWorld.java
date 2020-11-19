@@ -13,6 +13,10 @@ public class CatanWorld extends World {
     PlayButton p = new PlayButton();
     Menu m = new Menu();
     ListButton l = new ListButton();
+    TownButton town = new TownButton();
+    VillageButton village = new VillageButton();
+    RoadButton road = new RoadButton();
+    TradeButton trade = new TradeButton();
     Rules pravidla = new Rules();
     PlayerProfile playerProfile= new PlayerProfile();
     X x= new X();
@@ -118,7 +122,11 @@ public class CatanWorld extends World {
             removeObject(l);
             removeObject(pravidla);
             spustenie = true;
-            addObject(playerProfile, 599,475);
+            addObject(playerProfile, 599,700);
+            addObject(town, 75, 610);
+            addObject(village, 75, 520);
+            addObject(road, 75, 430);
+            addObject(trade, 75, 340);
 
 
         }
@@ -129,7 +137,6 @@ public class CatanWorld extends World {
         GreenfootImage img = new GreenfootImage(500, 100);
         img.setColor(Color.BLACK);
         img.fill();
-        img.setColor(Color.RED);
 
 
         getBackground().drawImage(new GreenfootImage(Game.players.get(0).getName(), 25, null, Color.WHITE), 40, 30);
