@@ -7,7 +7,7 @@ import java.util.*;
 public class Player{
 
     private String name;
-    private int road = 0;
+    private int road = 4;
     private int points = 0;
     private HashMap<String, Integer> resources;
     private ArrayList<CountryBlock> blocks;
@@ -68,23 +68,35 @@ public class Player{
      * @version 1.0.0
      */
     public void buildVillage(int cisloCountryBlocku) {
-        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1) {
-            resources.put("WOOD", resources.get("WOOD") - 1);
-            resources.put("GRAIN", resources.get("GRAIN") - 1);
-            resources.put("BRICK", resources.get("BRICK") - 1);
-            resources.put("SHEEP", resources.get("SHEEP") - 1);
+        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1 & road < 2) {
 
             for (CountryBlock c : Game.getCountryBlocks()) {
                 if(c.getSuradnice() == cisloCountryBlocku) {
-                    c.setTyp_obydla(1);
-                }
-            }
-            setPoints(1);
-            if (Game.endGame() == true){
-                System.out.println("Konec hry");
+                    if(c.getTyp_obydla()<1) {
+                        c.setTyp_obydla(1);
+
+                        resources.put("WOOD", resources.get("WOOD") - 1);
+                        resources.put("GRAIN", resources.get("GRAIN") - 1);
+                        resources.put("BRICK", resources.get("BRICK") - 1);
+                        resources.put("SHEEP", resources.get("SHEEP") - 1);
+
+                        setPoints(1);
+                        if (Game.endGame() == true){
+                            System.out.println("Konec hry");
+                        }
+
+                    }
+                    else {
+                        System.out.println("Toto misto je již obsazene");
+                    }
+                    }
             }
         }
         else
+            if(road < 2) {
+                System.out.println("Nemáš koupené 2 cesty na stavbu vesnice");
+            }
+            else
             System.out.println("Nemáš dostatek surovin na stavbu vesnice");
 
 
@@ -92,20 +104,31 @@ public class Player{
     }
     public void buildTown(int cisloCountryBlocku) {
 
-        if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3) {
-
-            resources.put("GRAIN", resources.get("GRAIN") - 2);
-            resources.put("STONE", resources.get("STONE") - 3);
+        if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3 ) {
 
             for (CountryBlock c : Game.getCountryBlocks()) {
                 if (c.getSuradnice() == cisloCountryBlocku) {
-                    c.setTyp_obydla(2);
+                    if(c.getTyp_obydla()==1) {
+                        c.setTyp_obydla(2);
+
+                        resources.put("GRAIN", resources.get("GRAIN") - 2);
+                        resources.put("STONE", resources.get("STONE") - 3);
+
+
+                        setPoints(2);
+                        if (Game.endGame() == true){
+                            System.out.println("Konec hry");
+                        }
+                    }
+                    else if (c.getTyp_obydla()==2){
+                        System.out.println("Zde už je postavene mesto");
+                    }
+                    else {
+                        System.out.println("Potřebuješ zde postavit prvni vesnici");
+                    }
                 }
             }
-            setPoints(2);
-            if (Game.endGame() == true){
-                System.out.println("Konec hry");
-            }
+
         }
         else
             System.out.println("Nemáš dostatek surovin na stavbu města");
