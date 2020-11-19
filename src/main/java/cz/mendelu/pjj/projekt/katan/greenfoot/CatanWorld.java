@@ -1,6 +1,7 @@
 package cz.mendelu.pjj.projekt.katan.greenfoot;
 
 import cz.mendelu.pjj.projekt.katan.domain.Game;
+import cz.mendelu.pjj.projekt.katan.domain.List;
 import cz.mendelu.pjj.projekt.katan.domain.Menu;
 import cz.mendelu.pjj.projekt.katan.domain.PlayButton;
 import greenfoot.Greenfoot;
@@ -9,9 +10,10 @@ import java.util.ArrayList;
 
 public class CatanWorld extends World {
 
-
     PlayButton p = new PlayButton();
     Menu m = new Menu();
+    List l = new List();
+
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -74,6 +76,7 @@ public class CatanWorld extends World {
 
         addObject(m, 597,475);
         addObject(p, 615,350);
+        addObject(l, 1100,100);
 
     }
 //Metoda na spustenie hry v menu
@@ -84,6 +87,7 @@ public class CatanWorld extends World {
         {
             removeObject(p);
             removeObject(m);
+            removeObject(l);
         }
     }
 }
