@@ -95,4 +95,9 @@ public class CountryBlock extends Actor {
                 ", typ_obydlia=" + typ_obydlia +
                 '}';
     }
+
+    @Override
+    public void act() {
+        super.act();
+    }
 }
