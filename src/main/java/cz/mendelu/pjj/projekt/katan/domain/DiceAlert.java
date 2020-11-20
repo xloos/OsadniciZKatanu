@@ -10,7 +10,7 @@ import java.awt.*;
 public class DiceAlert extends Actor {
     public DiceAlert() {
         String text = " Zadal si 7 mozes posuvat pirata ";
-        GreenfootImage inner = new GreenfootImage(text, 48, Color.black, new Color(100, 100, 100, 96));
+        GreenfootImage inner = new GreenfootImage(text, 48, Color.black, new Color(200, 200, 200, 200));
         setImage(inner);
     }
 }

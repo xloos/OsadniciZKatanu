@@ -147,7 +147,7 @@ public class CatanWorld extends World {
     private void vypisKocky() {
         addObject(dice, 200, 850);
         if(Game.getDice()==7){
-            addObject(diceAlert, 300, 450);
+            addObject(diceAlert, 600, 450);
             if (Greenfoot.mouseClicked(diceAlert))
             {
                 removeObject(diceAlert);
@@ -162,46 +162,99 @@ public class CatanWorld extends World {
     private void vypisHracInfo() {
 
 
-        GreenfootImage drawedImage = new GreenfootImage("iconRoad.png");//the image that is drawed;
+        GreenfootImage wood = new GreenfootImage("drevo.png");//the image that is drawed;
+        GreenfootImage grain = new GreenfootImage("obili.png");//the image that is drawed;
+        GreenfootImage stone = new GreenfootImage("kamen.png");//the image that is drawed;
+        GreenfootImage brick = new GreenfootImage("cihla.png");//the image that is drawed;
+        GreenfootImage sheep = new GreenfootImage("ovce.png");//the image that is drawed;
 
-        getBackground().drawImage(drawedImage, 100, 100);
 
 
-        getBackground().drawImage(new GreenfootImage(Game.players.get(0).getName(), 25, Color.BLUE, Color.WHITE), 40, 30);
-        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(0).getPoints(), 25, Color.BLUE, Color.WHITE), 40, 60);
-        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(0).getRoad(), 25, Color.BLUE, Color.WHITE), 40, 90);
-        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(0).getResources().get("WOOD"), 25, Color.BLUE, Color.WHITE), 40, 120);
-        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(0).getResources().get("GRAIN"), 25, Color.BLUE, Color.WHITE), 40, 150);
-        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(0).getResources().get("STONE"), 25, Color.BLUE, Color.WHITE), 40, 180);
-        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(0).getResources().get("BRICK"), 25, Color.BLUE, Color.WHITE), 40, 210);
-        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(0).getResources().get("SHEEP"), 25, Color.BLUE, Color.WHITE), 40, 240);
 
-        getBackground().drawImage(new GreenfootImage(Game.players.get(1).getName(), 25, Color.RED, Color.WHITE), 40, 700);
-        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(1).getPoints(), 25, Color.RED, Color.WHITE), 40, 730);
-        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(1).getRoad(), 25, Color.RED, Color.WHITE), 40, 760);
-        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(1).getResources().get("WOOD"), 25, Color.RED, Color.WHITE), 40, 790);
-        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(1).getResources().get("GRAIN"), 25, Color.RED, Color.WHITE), 40, 820);
-        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(1).getResources().get("STONE"), 25, Color.RED, Color.WHITE), 40, 850);
-        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(1).getResources().get("BRICK"), 25, Color.RED, Color.WHITE), 40, 880);
-        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(1).getResources().get("SHEEP"), 25, Color.RED, Color.WHITE), 40, 910);
 
-        getBackground().drawImage(new GreenfootImage(Game.players.get(2).getName(), 25, Color.GREEN, Color.WHITE), 1050, 30);
-        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(2).getPoints(), 25, Color.GREEN, Color.WHITE), 1050, 60);
-        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(2).getRoad(), 25, Color.GREEN, Color.WHITE), 1050, 90);
-        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(2).getResources().get("WOOD"), 25, Color.GREEN, Color.WHITE), 1050, 120);
-        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(2).getResources().get("GRAIN"), 25, Color.GREEN, Color.WHITE), 1050, 150);
-        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(2).getResources().get("STONE"), 25, Color.GREEN, Color.WHITE), 1050, 180);
-        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(2).getResources().get("BRICK"), 25, Color.GREEN, Color.WHITE), 1050, 210);
-        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(2).getResources().get("SHEEP"), 25, Color.GREEN, Color.WHITE), 1050, 240);
+        getBackground().drawImage(new GreenfootImage(Game.players.get(0).getName(), 35, Color.BLACK, Color.getHSBColor((float) 0.59, (float) 0.80, (float) 0.82)), 10, 10);
+        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(0).getPoints(), 25, Color.BLACK, Color.getHSBColor((float) 0.59, (float) 0.80, (float) 0.82)), 10, 50);
+        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(0).getRoad(), 25, Color.BLACK, Color.getHSBColor((float) 0.59, (float) 0.80, (float) 0.82)), 10, 80);
+        getBackground().drawImage(wood, 10, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(0).getResources().get("WOOD"), 25, Color.white, Color.BLACK), 30, 130);
+        getBackground().drawImage(grain, 60, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(0).getResources().get("GRAIN"), 25, Color.white, Color.BLACK), 80, 130);
+        getBackground().drawImage(stone, 110, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(0).getResources().get("STONE"), 25, Color.white, Color.black), 130, 130);
+        getBackground().drawImage(brick, 160, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(0).getResources().get("BRICK"), 25, Color.white, Color.BLACK), 180, 130);
+        getBackground().drawImage(sheep, 210, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(0).getResources().get("SHEEP"), 25, Color.white, Color.BLACK), 230, 130);
 
-        getBackground().drawImage(new GreenfootImage(Game.players.get(3).getName(), 25, null, Color.WHITE), 1050, 700);
-        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(3).getPoints(), 25, null, Color.WHITE), 1050, 730);
-        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(3).getRoad(), 25, null, Color.WHITE), 1050, 760);
-        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(3).getResources().get("WOOD")+" Obilie:"+Game.players.get(3).getResources().get("GRAIN")+" Kamen:"+Game.players.get(3).getResources().get("STONE")+" Tehla:"+Game.players.get(3).getResources().get("BRICK")+" Ovce:"+Game.players.get(3).getResources().get("SHEEP"), 25, null, Color.WHITE), 800, 890);
-//        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(3).getResources().get("GRAIN"), 25, null, Color.WHITE), 1050, 820);
-//        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(3).getResources().get("STONE"), 25, null, Color.WHITE), 1050, 850);
-//        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(3).getResources().get("BRICK"), 25, null, Color.WHITE), 1050, 880);
-//        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(3).getResources().get("SHEEP"), 25, null, Color.WHITE), 1050, 910);
+        getBackground().drawImage(new GreenfootImage(Game.players.get(1).getName(), 35, Color.BLACK, Color.getHSBColor((float) 0.99, (float) 0.92, (float) 0.87)), 10, 760);
+        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(1).getPoints(), 25, Color.black, Color.getHSBColor((float) 0.99, (float) 0.92, (float) 0.87)), 10, 800);
+        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(1).getRoad(), 25, Color.black, Color.getHSBColor((float) 0.99, (float) 0.92, (float) 0.87)), 10, 830);
+        getBackground().drawImage(wood, 10, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(1).getResources().get("WOOD"), 25, Color.WHITE, Color.BLACK), 30, 920);
+        getBackground().drawImage(grain, 60, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(1).getResources().get("GRAIN"), 25, Color.WHITE, Color.BLACK), 80, 920);
+        getBackground().drawImage(stone, 110, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(1).getResources().get("STONE"), 25, Color.WHITE, Color.BLACK), 130, 920);
+        getBackground().drawImage(brick, 160, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(1).getResources().get("BRICK"), 25, Color.WHITE, Color.BLACK), 180, 920);
+        getBackground().drawImage(sheep, 210, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(1).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 230, 920);
+
+        getBackground().drawImage(new GreenfootImage(Game.players.get(2).getName(), 35, Color.BLACK, Color.getHSBColor((float) 0.213, (float) 0.73, (float) 0.74)), 940, 10);
+        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(2).getPoints(), 25, Color.BLACK, Color.getHSBColor((float) 0.213, (float) 0.73, (float) 0.74)), 940, 50);
+        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(2).getRoad(), 25, Color.BLACK, Color.getHSBColor((float) 0.213, (float) 0.73, (float) 0.74)), 940, 80);
+        getBackground().drawImage(wood, 940, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(2).getResources().get("WOOD"), 25, Color.WHITE, Color.BLACK), 960, 130);
+        getBackground().drawImage(grain, 990, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(2).getResources().get("GRAIN"), 25, Color.WHITE, Color.BLACK), 1010, 130);
+        getBackground().drawImage(stone, 1040, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(2).getResources().get("STONE"), 25, Color.WHITE, Color.BLACK), 1060, 130);
+        getBackground().drawImage(brick, 1090, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(2).getResources().get("BRICK"), 25, Color.WHITE, Color.BLACK), 1110, 130);
+        getBackground().drawImage(sheep, 1140, 150);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(2).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 1160, 130);
+
+        getBackground().drawImage(new GreenfootImage(Game.players.get(3).getName(), 35, Color.WHITE, Color.getHSBColor((float) 0.56, (float) 0.13, (float) 0.24)), 940, 760);
+        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(3).getPoints(), 25, Color.WHITE, Color.getHSBColor((float) 0.56, (float) 0.13, (float) 0.24)), 940, 800);
+        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(3).getRoad(), 25, Color.WHITE, Color.getHSBColor((float) 0.56, (float) 0.13, (float) 0.24)), 940, 830);
+        getBackground().drawImage(wood, 940, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("WOOD"), 25, Color.WHITE, Color.BLACK), 960, 920);
+        getBackground().drawImage(grain, 990, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("GRAIN"), 25, Color.WHITE, Color.BLACK), 1010, 920);
+        getBackground().drawImage(stone, 1040, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("STONE"), 25, Color.WHITE, Color.BLACK), 1060, 920);
+        getBackground().drawImage(brick, 1090, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("BRICK"), 25, Color.WHITE, Color.BLACK), 1110, 920);
+        getBackground().drawImage(sheep, 1140, 870);
+        getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 1160, 920);
+
+
+//        getBackground().drawImage(new GreenfootImage(Game.players.get(1).getName(), 25, Color.RED, Color.WHITE), 40, 700);
+//        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(1).getPoints(), 25, Color.RED, Color.WHITE), 40, 730);
+//        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(1).getRoad(), 25, Color.RED, Color.WHITE), 40, 760);
+//        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(1).getResources().get("WOOD"), 25, Color.RED, Color.WHITE), 40, 790);
+//        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(1).getResources().get("GRAIN"), 25, Color.RED, Color.WHITE), 40, 820);
+//        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(1).getResources().get("STONE"), 25, Color.RED, Color.WHITE), 40, 850);
+//        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(1).getResources().get("BRICK"), 25, Color.RED, Color.WHITE), 40, 880);
+//        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(1).getResources().get("SHEEP"), 25, Color.RED, Color.WHITE), 40, 910);
+//
+//        getBackground().drawImage(new GreenfootImage(Game.players.get(2).getName(), 25, Color.GREEN, Color.WHITE), 1050, 30);
+//        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(2).getPoints(), 25, Color.GREEN, Color.WHITE), 1050, 60);
+//        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(2).getRoad(), 25, Color.GREEN, Color.WHITE), 1050, 90);
+//        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(2).getResources().get("WOOD"), 25, Color.GREEN, Color.WHITE), 1050, 120);
+//        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(2).getResources().get("GRAIN"), 25, Color.GREEN, Color.WHITE), 1050, 150);
+//        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(2).getResources().get("STONE"), 25, Color.GREEN, Color.WHITE), 1050, 180);
+//        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(2).getResources().get("BRICK"), 25, Color.GREEN, Color.WHITE), 1050, 210);
+//        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(2).getResources().get("SHEEP"), 25, Color.GREEN, Color.WHITE), 1050, 240);
+//
+//        getBackground().drawImage(new GreenfootImage(Game.players.get(3).getName(), 25, null, Color.WHITE), 1050, 700);
+//        getBackground().drawImage(new GreenfootImage("Pocet bodov:"+Game.players.get(3).getPoints(), 25, null, Color.WHITE), 1050, 730);
+//        getBackground().drawImage(new GreenfootImage("Pocet ciest:"+Game.players.get(3).getRoad(), 25, null, Color.WHITE), 1050, 760);
+//        getBackground().drawImage(new GreenfootImage("Drevo:"+Game.players.get(3).getResources().get("WOOD")+" Obilie:"+Game.players.get(3).getResources().get("GRAIN")+" Kamen:"+Game.players.get(3).getResources().get("STONE")+" Tehla:"+Game.players.get(3).getResources().get("BRICK")+" Ovce:"+Game.players.get(3).getResources().get("SHEEP"), 25, null, Color.WHITE), 800, 890);
+////        getBackground().drawImage(new GreenfootImage("Obilie:"+Game.players.get(3).getResources().get("GRAIN"), 25, null, Color.WHITE), 1050, 820);
+////        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(3).getResources().get("STONE"), 25, null, Color.WHITE), 1050, 850);
+////        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(3).getResources().get("BRICK"), 25, null, Color.WHITE), 1050, 880);
+////        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(3).getResources().get("SHEEP"), 25, null, Color.WHITE), 1050, 910);
 
 
     }
