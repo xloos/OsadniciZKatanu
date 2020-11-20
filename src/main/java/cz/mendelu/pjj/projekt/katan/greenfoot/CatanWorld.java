@@ -22,6 +22,8 @@ public class CatanWorld extends World {
     X x= new X();
     Dice dice = new Dice();
     String pod = "pod";
+    HelpIcon helpIcon = new HelpIcon();
+    HelpInfoCard helpInfoCard = new HelpInfoCard();
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -108,10 +110,18 @@ public class CatanWorld extends World {
             addObject(x, 1100,850);
 
         }
+        if (Greenfoot.mouseClicked(helpIcon))
+        {
+            addObject(helpInfoCard, 599,475);
+            addObject(x, 600,850);
+
+
+        }
         if (Greenfoot.mouseClicked(x))
         {
             removeObject(pravidla);
             removeObject(x);
+            removeObject(helpInfoCard);
         }
 
         if (Greenfoot.mouseClicked(p))
@@ -125,6 +135,7 @@ public class CatanWorld extends World {
             addObject(village, 75, 520);
             addObject(road, 75, 430);
             addObject(trade, 75, 340);
+            addObject(helpIcon, 1130, 340);
         }
         if (spustenie==true){
             vypisHracInfo();
