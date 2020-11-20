@@ -1,5 +1,8 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import greenfoot.GreenfootImage;
+
+import java.awt.*;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -59,12 +62,8 @@ public class Game{
     public static int diceRoll(){
         int roll = (int)(Math.random() * 6 + 1) + (int)(Math.random() * 6 + 1);
         if (roll == 7) {
-            System.out.println("Zadal si 7 mozes posuvat pirata" );
-            Scanner in = new Scanner(System.in);
-            System.out.println("Kde chces posunut pirata: " );
-            int p = in.nextInt();
-            p--;
-            piratMove(Game.countryBlocks.get(p));
+
+            //piratMove(Game.countryBlocks.get(p)); treba dorobit v greenfoote pirata
             return roll;
         }
         else {
@@ -241,7 +240,7 @@ public class Game{
         return players;
     }
 
-    public int getDice() {
+    public static int getDice() {
         return dice;
     }
 

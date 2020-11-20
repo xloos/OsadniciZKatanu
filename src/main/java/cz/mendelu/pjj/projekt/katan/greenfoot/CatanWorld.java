@@ -18,14 +18,16 @@ public class CatanWorld extends World {
     RoadButton road = new RoadButton();
     TradeButton trade = new TradeButton();
     Rules pravidla = new Rules();
-    PlayerProfile playerProfile= new PlayerProfile();
+    DiceAlert diceAlert = new DiceAlert();
     X x= new X();
+    Dice dice = new Dice();
     String pod = "pod";
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
         setBackground("images/mapa2.jpg");
         Game.createNewGame();
+        Game.setDice(Game.diceRoll());
         addObject(Game.countryBlocks.get(0), 365,147);
         addObject(Game.countryBlocks.get(1), 450,99);
         addObject(Game.countryBlocks.get(2), 535,147);
@@ -119,7 +121,6 @@ public class CatanWorld extends World {
             removeObject(l);
             removeObject(pravidla);
             spustenie = true;
-            addObject(playerProfile, 599,700);
             addObject(town, 75, 610);
             addObject(village, 75, 520);
             addObject(road, 75, 430);
@@ -127,14 +128,32 @@ public class CatanWorld extends World {
         }
         if (spustenie==true){
             vypisHracInfo();
+            vypisKocky();
         }
 
     }
 
+    private void vypisKocky() {
+        addObject(dice, 200, 850);
+        if(Game.getDice()==7){
+            addObject(diceAlert, 300, 450);
+            if (Greenfoot.mouseClicked(diceAlert))
+            {
+                removeObject(diceAlert);
+                Game.setDice(0);
+
+            }
+        }
+        //drawImage(new GreenfootImage(""+Game.getDice(), 40, null, Color.WHITE), 200, 850);
+        showText(""+Game.getDice(),200, 850);
+    }
+
     private void vypisHracInfo() {
-        GreenfootImage img = new GreenfootImage(500, 100);
-        img.setColor(Color.BLACK);
-        img.fill();
+
+
+        GreenfootImage drawedImage = new GreenfootImage("iconRoad.png");//the image that is drawed;
+
+        getBackground().drawImage(drawedImage, 100, 100);
 
 
         getBackground().drawImage(new GreenfootImage(Game.players.get(0).getName(), 25, Color.BLUE, Color.WHITE), 40, 30);
@@ -172,6 +191,7 @@ public class CatanWorld extends World {
 //        getBackground().drawImage(new GreenfootImage("Kamen:"+Game.players.get(3).getResources().get("STONE"), 25, null, Color.WHITE), 1050, 850);
 //        getBackground().drawImage(new GreenfootImage("Tehla:"+Game.players.get(3).getResources().get("BRICK"), 25, null, Color.WHITE), 1050, 880);
 //        getBackground().drawImage(new GreenfootImage("Ovce:"+Game.players.get(3).getResources().get("SHEEP"), 25, null, Color.WHITE), 1050, 910);
+
 
     }
 }
