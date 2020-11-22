@@ -170,11 +170,10 @@ public class CatanWorld extends World {
     private void nakupCesty() {
         if (Greenfoot.mouseClicked(road))
         {
-            Game.players.get(0).buyRoad();
-
+                Game.players.get(0).buyRoad();
+            }
         }
-
-    }
+        
 
     private void vymenaSurovin() {
 

@@ -1,5 +1,6 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import greenfoot.Actor;
 import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import javax.print.DocFlavor;
@@ -85,22 +86,22 @@ public class Player extends Actor {
 
                         setPoints(1);
                         if (Game.endGame() == true){
-                            System.out.println("Konec hry");
+                            CatanWorld.oznam("Konec hry !");
                         }
 
                     }
                     else {
-                        System.out.println("Toto misto je již obsazene");
+                        CatanWorld.oznam("Toto misto je již obsazene");
                     }
                     }
             }
         }
         else
             if(road < 2) {
-                System.out.println("Nemáš koupené 2 cesty na stavbu vesnice");
+                CatanWorld.oznam("Nemáš koupené 2 cesty na stavbu vesnice");
             }
             else
-            System.out.println("Nemáš dostatek surovin na stavbu vesnice");
+                CatanWorld.oznam("Nemáš dostatek surovin na stavbu vesnice");
 
 
 
@@ -141,21 +142,21 @@ public class Player extends Actor {
 
                         setPoints(2);
                         if (Game.endGame() == true){
-                            System.out.println("Konec hry");
+                            CatanWorld.oznam("Konec hry !");
                         }
                     }
                     else if (c.getTyp_obydla()==2){
-                        System.out.println("Zde už je postavene mesto");
+                        CatanWorld.oznam("Zde už je postavene mesto");
                     }
                     else {
-                        System.out.println("Potřebuješ zde postavit prvni vesnici");
+                        CatanWorld.oznam("Potřebuješ zde postavit prvni vesnici");
                     }
                 }
             }
 
         }
         else
-            System.out.println("Nemáš dostatek surovin na stavbu města");
+            CatanWorld.oznam("Nemáš dostatek surovin na stavbu města");
     }
 
     /**
@@ -170,6 +171,7 @@ public class Player extends Actor {
             resources.put("WOOD", resources.get("WOOD") - 1);
             resources.put("BRICK", resources.get("BRICK") - 1);
             setRoad(1);
+            CatanWorld.oznam("Koupil si cestu !");
         }
         else
             CatanWorld.oznam("Nemas dostatek surovin na koupi cesty");
@@ -210,7 +212,7 @@ public class Player extends Actor {
             case 5: surovina = "SHEEP";
                 break;
             default:
-                System.out.println("Zadal si číslo mimo rozsah");
+                CatanWorld.oznam("Zadal si číslo mimo rozsah");
         }
 
         switch(getSurovina) {
@@ -220,7 +222,7 @@ public class Player extends Actor {
                     resources.put(surovina, resources.get(surovina) + 1);
                 }
                 else
-                    System.out.println("Nemas dostatek dreva na vymenu");
+                    CatanWorld.oznam("Nemas dostatek dreva na vymenu");
 
                 break;
             case 2:
@@ -229,7 +231,7 @@ public class Player extends Actor {
                     resources.put(surovina, resources.get(surovina) + 1);
                 }
                 else
-                    System.out.println("Nemas dostatek obilí na vymenu");
+                    CatanWorld.oznam("Nemas dostatek obilí na vymenu");
                 break;
             case 3:
                 if(resources.get("STONE")>=4 ) {
@@ -237,7 +239,7 @@ public class Player extends Actor {
                     resources.put(surovina, resources.get(surovina) + 1);
                 }
                 else
-                    System.out.println("Nemas dostatek kamene na vymenu");
+                CatanWorld.oznam("Nemas dostatek kamene na vymenu");
                 break;
             case 4:
                 if(resources.get("BRICK")>=4 ) {
@@ -245,7 +247,7 @@ public class Player extends Actor {
                     resources.put(surovina, resources.get(surovina) + 1);
                 }
                 else
-                    System.out.println("Nemas dostatek cihel na vymenu");
+                    CatanWorld.oznam("Nemas dostatek cihel na vymenu");
                 break;
             case 5:
                 if(resources.get("SHEEP")>=4 ) {
@@ -253,11 +255,14 @@ public class Player extends Actor {
                     resources.put(surovina, resources.get(surovina) + 1);
                 }
                 else
-                    System.out.println("Nemas dostatek ovcí na vymenu");
+                    CatanWorld.oznam("Nemas dostatek ovcí na vymenu");
                 break;
             default:
-                System.out.println("Zadal si číslo mimo rozsah");
+                CatanWorld.oznam("Zadal si číslo mimo rozsah");
+
         }
+        CatanWorld.oznam("Uspesne jsi vymenil suroviny");
+
     }
 
     @Override
