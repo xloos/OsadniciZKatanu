@@ -29,6 +29,11 @@ public class CatanWorld extends World {
     Boolean pirat_posun = false;
     Arrows arrows = new Arrows();
     int vymena = 0;
+    Wood wood = new Wood();
+    Brick brick = new Brick();
+    Stone stone = new Stone();
+    Sheep sheep = new Sheep();
+    Grain grain = new Grain();
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
