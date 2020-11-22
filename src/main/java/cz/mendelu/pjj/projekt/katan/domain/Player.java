@@ -104,33 +104,27 @@ public class Player extends Actor {
 
 
     }
+
     public boolean termVillage(int cisloCountryBlocku) {
 
-        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1 & road < 2) {
+        if (resources.get("WOOD") >= 1 & resources.get("GRAIN") >= 1 & resources.get("BRICK") >= 1 & resources.get("SHEEP") >= 1 & road < 2) {
 
             for (CountryBlock c : Game.getCountryBlocks()) {
-                if(c.getSuradnice() == cisloCountryBlocku) {
-                    if(c.getTyp_obydla()<1) {
-
-
+                if (c.getSuradnice() == cisloCountryBlocku) {
+                    if (c.getTyp_obydla() < 1) {
                     }
                     else {
-                        System.out.println("Toto misto je již obsazene");
+                        return false;
                     }
                 }
             }
         }
-        else
-        if(road < 2) {
-            System.out.println("Nemáš koupené 2 cesty na stavbu vesnice");
+        else {
+            return false;
         }
-        else
-            System.out.println("Nemáš dostatek surovin na stavbu vesnice");
-
-
         return true;
-
     }
+
     public void buildTown(int cisloCountryBlocku) {
 
         if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3 ) {
