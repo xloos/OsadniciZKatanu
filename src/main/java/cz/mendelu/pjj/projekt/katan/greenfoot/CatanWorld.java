@@ -21,7 +21,7 @@ public class CatanWorld extends World {
     RoadButton road = new RoadButton();
     TradeButton trade = new TradeButton();
     Rules pravidla = new Rules();
-    DiceAlert diceAlert = new DiceAlert();
+    Alert alert = new Alert();
     X x= new X();
     Dice dice = new Dice();
     String pod = "pod";
@@ -251,7 +251,7 @@ public class CatanWorld extends World {
                 System.out.println(co);
                 Game.players.get(0).trade(co,zaco);
             }
-            if (vymena ==42&& Greenfoot.mouseClicked(sheep)){
+            if (vymena ==2&& Greenfoot.mouseClicked(sheep)){
                 vymena = 0;
                 zaco = 5;
                 System.out.println(zaco);
@@ -302,14 +302,11 @@ public class CatanWorld extends World {
 
     private void vypisKocky() {
         addObject(dice, 220, 60);
-        if (Greenfoot.mouseClicked(diceAlert))
-        {
-            removeObject(diceAlert);
-        }
         if(Game.getDice()==7){
             pirat_posun = true;
             Game.setDice(0);
-            addObject(diceAlert, 600, 450);
+            oznam("Zadal si 7 mozes posuvat pirata");
+
         }
         //drawImage(new GreenfootImage(""+Game.getDice(), 30, null, Color.WHITE), 200, 850);
         if (Game.getDice()==0) {
@@ -323,9 +320,21 @@ public class CatanWorld extends World {
 
     }
 
+    private void oznam(String s) {
+        String text = s;
+        GreenfootImage banner = new GreenfootImage(text, 48, Color.black, new Color(200, 200, 200, 200));
+        alert.setImage(banner);
+        addObject(alert, 600, 450);
+
+
+    }
+
     private void vypisHracInfo() {
 
-
+        if (Greenfoot.mouseClicked(alert))
+        {
+            removeObject(alert);
+        }
         GreenfootImage wood = new GreenfootImage("drevo.png");//the image that is drawed;
         GreenfootImage grain = new GreenfootImage("obili.png");//the image that is drawed;
         GreenfootImage stone = new GreenfootImage("kamen.png");//the image that is drawed;
