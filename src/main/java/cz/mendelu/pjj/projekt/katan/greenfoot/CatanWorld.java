@@ -154,8 +154,17 @@ public class CatanWorld extends World {
             vypisKocky();
             presuvaniePirata();
             vymenaSurovin();
+            nakupCesty();
         }
 
+
+    }
+    private void nakupCesty() {
+        if (Greenfoot.mouseClicked(road))
+        {
+            Game.players.get(0).buyRoad();
+
+        }
 
     }
 

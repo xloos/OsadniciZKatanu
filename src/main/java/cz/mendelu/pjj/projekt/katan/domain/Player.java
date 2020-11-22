@@ -81,6 +81,7 @@ public class Player extends Actor {
                         resources.put("GRAIN", resources.get("GRAIN") - 1);
                         resources.put("BRICK", resources.get("BRICK") - 1);
                         resources.put("SHEEP", resources.get("SHEEP") - 1);
+                        setRoad(-2);
 
                         setPoints(1);
                         if (Game.endGame() == true){
@@ -168,7 +169,7 @@ public class Player extends Actor {
 
             resources.put("WOOD", resources.get("WOOD") - 1);
             resources.put("BRICK", resources.get("BRICK") - 1);
-            this.road += 1;
+            setRoad(1);
         }
         else
             System.out.println("Nemas dostatek surovin na koupi cesty");
@@ -290,7 +291,7 @@ public class Player extends Actor {
     }
 
     public void setRoad(int road) {
-        this.road = road;
+        this.road += road;
     }
 
     public int getRoad() {
