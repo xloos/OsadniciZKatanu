@@ -188,8 +188,10 @@ public class CatanWorld extends World {
                 if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie)
                 {
                     stavanie =false;
-                    Game.players.get(0).buildVillage(i);
-                    Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                    if(Game.players.get(0).buildVillage(i)){
+                        Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                    }
+
                 }
             }
         }

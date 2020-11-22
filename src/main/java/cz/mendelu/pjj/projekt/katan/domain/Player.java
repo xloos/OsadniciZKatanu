@@ -3,6 +3,8 @@ package cz.mendelu.pjj.projekt.katan.domain;
 import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import greenfoot.Actor;
 import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
+import greenfoot.Greenfoot;
+
 import javax.print.DocFlavor;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -70,40 +72,41 @@ public class Player extends Actor {
      * @author xpavlik
      * @version 1.0.0
      */
-    public void buildVillage(int cisloCountryBlocku) {
-        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1 & road >= 2) {
+    public boolean buildVillage(int cisloCountryBlocku) {
+        if(resources.get("WOOD") < 1 || resources.get("GRAIN") <1 || resources.get("BRICK") <1 || resources.get("SHEEP") <1 || road < 2) {
+            if(road < 2) {
+                CatanWorld.oznam("Nemáš koupené 2 cesty na stavbu vesnice");
+                return false;
+            }
+            else if (resources.get("WOOD") < 1 || resources.get("GRAIN") <1 || resources.get("BRICK") <1 || resources.get("SHEEP") <1){
+                CatanWorld.oznam("Nemáš dostatek surovin na stavbu vesnice");
+                return false;
+            }
+        }
+        else if (resources.get("WOOD") >=1&& resources.get("GRAIN")>=1 && resources.get("BRICK") >=1 && resources.get("SHEEP") >=1 && road >= 2){
 
-            for (CountryBlock c : Game.getCountryBlocks()) {
-                if(c.getSuradnice() == cisloCountryBlocku) {
-                    if(c.getTyp_obydla()<1) {
-                        c.setTyp_obydla(1);
+
+            for (int i = 0; i < 54; i++) {
+                if(Game.countryBlocks.get(i).getSuradnice() == cisloCountryBlocku) {
+                    if(Game.countryBlocks.get(i).getTyp_obydla()<1) {
+                        Game.countryBlocks.get(i).setTyp_obydla(1);
                         resources.put("WOOD", resources.get("WOOD") - 1);
                         resources.put("GRAIN", resources.get("GRAIN") - 1);
                         resources.put("BRICK", resources.get("BRICK") - 1);
                         resources.put("SHEEP", resources.get("SHEEP") - 1);
                         setRoad(-2);
-
                         setPoints(1);
-                        if (Game.endGame() == true){
-                            CatanWorld.oznam("Konec hry !");
-                        }
-
+                        return true;
                     }
-                    else {
-                        CatanWorld.oznam("Toto misto je již obsazene");
-                    }
-                    }
+                }
             }
+
+        }else{
+            CatanWorld.oznam("Ani jedna podmienka nepresla");
+            return false;
+
         }
-        else
-            if(road < 2) {
-                CatanWorld.oznam("Nemáš koupené 2 cesty na stavbu vesnice");
-            }
-            else
-                CatanWorld.oznam("Nemáš dostatek surovin na stavbu vesnice");
-
-        CatanWorld.oznam("Vesnice byla postavena");
-
+        return false;
     }
 
     public boolean termVillage(int cisloCountryBlocku) {
