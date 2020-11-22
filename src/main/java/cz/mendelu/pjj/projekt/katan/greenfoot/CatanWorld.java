@@ -28,6 +28,7 @@ public class CatanWorld extends World {
     Pirate pirate = new Pirate();
     Boolean pirat_posun = false;
     Arrows arrows = new Arrows();
+
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
