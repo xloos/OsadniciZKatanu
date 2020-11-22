@@ -71,13 +71,12 @@ public class Player extends Actor {
      * @version 1.0.0
      */
     public void buildVillage(int cisloCountryBlocku) {
-        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1 & road < 2) {
+        if(resources.get("WOOD") >= 1 & resources.get("GRAIN") >=1 & resources.get("BRICK") >=1 & resources.get("SHEEP") >=1 & road >= 2) {
 
             for (CountryBlock c : Game.getCountryBlocks()) {
                 if(c.getSuradnice() == cisloCountryBlocku) {
                     if(c.getTyp_obydla()<1) {
                         c.setTyp_obydla(1);
-
                         resources.put("WOOD", resources.get("WOOD") - 1);
                         resources.put("GRAIN", resources.get("GRAIN") - 1);
                         resources.put("BRICK", resources.get("BRICK") - 1);
@@ -103,7 +102,7 @@ public class Player extends Actor {
             else
                 CatanWorld.oznam("Nemáš dostatek surovin na stavbu vesnice");
 
-        CatanWorld.oznam("Uspesne jsi vymenil suroviny");
+        CatanWorld.oznam("Vesnice byla postavena");
 
     }
 

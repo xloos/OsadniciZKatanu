@@ -13,7 +13,9 @@ public class CatanWorld extends World {
     private static boolean vypis = false;
     int co = 0;
     int zaco =0;
+    boolean stavanie = false;
     boolean spustenie = false;
+    ModraDedina modraDedina = new ModraDedina();
     PlayButton p = new PlayButton();
     Menu m = new Menu();
     ListButton l = new ListButton();
@@ -163,10 +165,40 @@ public class CatanWorld extends World {
                 addObject(CatanWorld.alert, 600, 450);
                 vypis = false;
             }
+            postavDedinu();
         }
 
 
     }
+
+    private void postavDedinu() {
+        if (Greenfoot.mouseClicked(village) && !stavanie)
+        {
+            stavanie =true;
+        }
+        else if (Greenfoot.mouseClicked(village) && stavanie)
+        {
+            stavanie =false;
+        }
+        if (stavanie){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            addObject(modraDedina,mouse.getX(),mouse.getY()+25);
+            modraDedina.setLocation(mouse.getX(),mouse.getY()+25);
+            for (int i = 0; i < 54; i++) {
+                if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie)
+                {
+                    stavanie =false;
+                    Game.players.get(0).buildVillage(i);
+                    Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                }
+            }
+        }
+        else if (!stavanie){
+            removeObject(modraDedina);
+        }
+
+    }
+
     private void nakupCesty() {
         if (Greenfoot.mouseClicked(road))
         {
