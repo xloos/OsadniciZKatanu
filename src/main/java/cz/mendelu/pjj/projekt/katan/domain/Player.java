@@ -266,8 +266,6 @@ public class Player extends Actor {
                 CatanWorld.oznam("Zadal si číslo mimo rozsah");
 
         }
-
-
     }
 
     @Override
