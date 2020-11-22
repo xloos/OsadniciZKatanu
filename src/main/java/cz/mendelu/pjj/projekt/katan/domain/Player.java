@@ -265,7 +265,7 @@ public class Player extends Actor {
                     CatanWorld.oznam("Vymenil si suroviny");
                 }
                 else
-                    CatanWorld.oznam("Nemas dostatek ovcí na vymenu");
+                    CatanWorld.oznam("Nemas dostatek ovci na vymenu");
                 break;
             default:
                 CatanWorld.oznam("Zadal si číslo mimo rozsah");
