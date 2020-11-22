@@ -192,18 +192,18 @@ public class Player extends Actor {
      * @version 1.0.0
      */
 
-    public void trade() {
+    public void trade(int daj_surovinu,int ziskaj_surovinu) {
         System.out.println("Mění se vždy v poměru 1:4 ! Musíš mít min. 4 stejné suroviny, aby si získal jinou !");
         System.out.println("-----------------------------------------------------------------------------------");
 
         System.out.println("Napiš číslo suroviny, kterou chceš měnit: ");
         System.out.println( " [1] - WOOD\n [2] - GRAIN\n [3] - STONE\n [4] - BRICK\n [5] - SHEEP\n");
-        Scanner sc = new Scanner(System.in);
-        int getSurovina = sc.nextInt();
+
+        int getSurovina = ziskaj_surovinu;
 
         System.out.println("Napiš číslo suroviny, kterou chceš dostat: ");
         System.out.println( " [1] - WOOD\n [2] - GRAIN\n [3] - STONE\n [4] - BRICK\n [5] - SHEEP\n");
-        int putSurovina = sc.nextInt();
+        int putSurovina = daj_surovinu;
         String surovina = null;
         switch (putSurovina){
             case 1: surovina = "WOOD";

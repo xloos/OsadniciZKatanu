@@ -141,10 +141,10 @@ public class CatanWorld extends World {
             removeObject(l);
             removeObject(pravidla);
 
-            addObject(town, 75, 610);
-            addObject(village, 75, 520);
-            addObject(road, 75, 430);
-            addObject(trade, 75, 340);
+            addObject(town, 75, 660);
+            addObject(village, 75, 570);
+            addObject(road, 75, 480);
+            addObject(trade, 75, 390);
             addObject(helpIcon, 1130, 340);
             addObject(pirate, 790, 780);
             spustenie = true;
@@ -169,23 +169,90 @@ public class CatanWorld extends World {
     }
 
     private void vymenaSurovin() {
-        if (vymena == 1){
+        int co = 0;
+        int zaco =0;
+        if (vymena == 0) {
+            removeObject(arrows);
+            removeObject(wood);
+            removeObject(grain);
+            removeObject(stone);
+            removeObject(brick);
+            removeObject(sheep);
+        }
+        else if (vymena == 1){
             MouseInfo mouse = Greenfoot.getMouseInfo();
             addObject(arrows,mouse.getX(),mouse.getY()+30);
             arrows.setLocation(mouse.getX(),mouse.getY()+30);
+            arrows.setImage("images/sipka.png");
+            addObject(wood,30,300);
+            addObject(grain,80,300);
+            addObject(stone,130,300);
+            addObject(brick,180,300);
+            addObject(sheep,230,300);
+            if (vymena ==1 && Greenfoot.mouseClicked(wood)){
+                vymena = 2;
+                co = 1;
+                removeObject(wood);
+            }
+            if (vymena ==1 && Greenfoot.mouseClicked(grain)){
+                vymena = 2;
+                co = 2;
+                removeObject(grain);
+            }
+            if (vymena ==1 && Greenfoot.mouseClicked(stone)){
+                vymena = 2;
+                co = 3;
+                removeObject(stone);
+            }
+            if (vymena ==1 && Greenfoot.mouseClicked(brick)){
+                vymena = 2;
+                co = 4;
+                removeObject(brick);
+            }
+            if (vymena ==1 && Greenfoot.mouseClicked(sheep)){
+                vymena = 2;
+                co = 5;
+                removeObject(sheep);
+            }
         }
         else if (vymena ==2){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            addObject(arrows,mouse.getX(),mouse.getY()+30);
+            arrows.setLocation(mouse.getX(),mouse.getY()+30);
             arrows.setImage("images/sipka_red.png");
+            if (vymena ==2 && Greenfoot.mouseClicked(wood)){
+                vymena = 0;
+                zaco = 1;
+            }
+            if (vymena ==2 && Greenfoot.mouseClicked(grain)){
+                vymena = 0;
+                zaco = 2;
+            }
+            if (vymena ==2 && Greenfoot.mouseClicked(stone)){
+                vymena = 0;
+                zaco = 3;
+            }
+            if (vymena ==3 && Greenfoot.mouseClicked(brick)){
+                vymena = 0;
+                zaco = 4;
+            }
+            if (vymena ==4 && Greenfoot.mouseClicked(sheep)){
+                vymena = 0;
+                zaco = 5;
+            }
+
         }
-        else {
-            removeObject(arrows);
-        }
+
         if (Greenfoot.mouseClicked(trade)&& vymena==0){
             vymena =1;
         }
-        else if (Greenfoot.mouseClicked(trade) && vymena==1 || vymena==2){
+        else if (Greenfoot.mouseClicked(trade) && vymena==1){
             vymena =0;
         }
+        else if (Greenfoot.mouseClicked(trade) && vymena==2){
+            vymena =0;
+        }
+
 
     }
 
