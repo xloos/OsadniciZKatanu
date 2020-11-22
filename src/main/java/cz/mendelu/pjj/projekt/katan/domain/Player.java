@@ -1,7 +1,7 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
 import greenfoot.Actor;
-
+import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import javax.print.DocFlavor;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -172,7 +172,7 @@ public class Player extends Actor {
             setRoad(1);
         }
         else
-            System.out.println("Nemas dostatek surovin na koupi cesty");
+            CatanWorld.oznam("Nemas dostatek surovin na koupi cesty");
     }
 
     /**

@@ -10,6 +10,7 @@ import greenfoot.World;
 import java.awt.*;
 
 public class CatanWorld extends World {
+    private static boolean vypis = false;
     int co = 0;
     int zaco =0;
     boolean spustenie = false;
@@ -21,7 +22,7 @@ public class CatanWorld extends World {
     RoadButton road = new RoadButton();
     TradeButton trade = new TradeButton();
     Rules pravidla = new Rules();
-    Alert alert = new Alert();
+    public static Alert alert = new Alert();
     X x= new X();
     Dice dice = new Dice();
     String pod = "pod";
@@ -116,6 +117,7 @@ public class CatanWorld extends World {
         /**
          * Prvá fáza - spustenie hry z menu.
          */
+
         if (Greenfoot.mouseClicked(l))
         {
             addObject(pravidla, 599,475);
@@ -157,6 +159,10 @@ public class CatanWorld extends World {
             presuvaniePirata();
             vymenaSurovin();
             nakupCesty();
+            if (vypis==true){
+                addObject(CatanWorld.alert, 600, 450);
+                vypis = false;
+            }
         }
 
 
@@ -320,14 +326,14 @@ public class CatanWorld extends World {
 
     }
 
-    private void oznam(String s) {
+    public static void oznam(String s) {
         String text = s;
         GreenfootImage banner = new GreenfootImage(text, 48, Color.black, new Color(200, 200, 200, 200));
         alert.setImage(banner);
-        addObject(alert, 600, 450);
-
-
+        vypis = true;
     }
+
+
 
     private void vypisHracInfo() {
 
