@@ -220,6 +220,7 @@ public class Player extends Actor {
                 if(resources.get("WOOD")>=4 ) {
                     resources.put("WOOD", resources.get("WOOD") - 4);
                     resources.put(surovina, resources.get(surovina) + 1);
+                    CatanWorld.oznam("Uspesne jsi vymenil suroviny");
                 }
                 else
                     CatanWorld.oznam("Nemas dostatek dreva na vymenu");
@@ -229,6 +230,7 @@ public class Player extends Actor {
                 if(resources.get("GRAIN")>=4 ) {
                     resources.put("GRAIN", resources.get("GRAIN") - 4);
                     resources.put(surovina, resources.get(surovina) + 1);
+                    CatanWorld.oznam("Uspesne jsi vymenil suroviny");
                 }
                 else
                     CatanWorld.oznam("Nemas dostatek obilí na vymenu");
@@ -237,6 +239,7 @@ public class Player extends Actor {
                 if(resources.get("STONE")>=4 ) {
                     resources.put("STONE", resources.get("STONE") - 4);
                     resources.put(surovina, resources.get(surovina) + 1);
+                    CatanWorld.oznam("Uspesne jsi vymenil suroviny");
                 }
                 else
                 CatanWorld.oznam("Nemas dostatek kamene na vymenu");
@@ -245,6 +248,7 @@ public class Player extends Actor {
                 if(resources.get("BRICK")>=4 ) {
                     resources.put("BRICK", resources.get("BRICK") - 4);
                     resources.put(surovina, resources.get(surovina) + 1);
+                    CatanWorld.oznam("Uspesne jsi vymenil suroviny");
                 }
                 else
                     CatanWorld.oznam("Nemas dostatek cihel na vymenu");
@@ -253,6 +257,7 @@ public class Player extends Actor {
                 if(resources.get("SHEEP")>=4 ) {
                     resources.put("SHEEP", resources.get("SHEEP") - 4);
                     resources.put(surovina, resources.get(surovina) + 1);
+                    CatanWorld.oznam("Uspesne jsi vymenil suroviny");
                 }
                 else
                     CatanWorld.oznam("Nemas dostatek ovcí na vymenu");
@@ -261,7 +266,7 @@ public class Player extends Actor {
                 CatanWorld.oznam("Zadal si číslo mimo rozsah");
 
         }
-        CatanWorld.oznam("Uspesne jsi vymenil suroviny");
+
 
     }
 
