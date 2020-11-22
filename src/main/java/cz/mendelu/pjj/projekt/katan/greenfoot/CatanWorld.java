@@ -28,7 +28,7 @@ public class CatanWorld extends World {
     Pirate pirate = new Pirate();
     Boolean pirat_posun = false;
     Arrows arrows = new Arrows();
-
+    int vymena = 0;
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -148,8 +148,30 @@ public class CatanWorld extends World {
             vypisHracInfo();
             vypisKocky();
             presuvaniePirata();
+            vymenaSurovin();
         }
 
+
+    }
+
+    private void vymenaSurovin() {
+        if (vymena == 1){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            addObject(arrows,mouse.getX(),mouse.getY()+30);
+            arrows.setLocation(mouse.getX(),mouse.getY()+30);
+        }
+        else if (vymena ==2){
+            arrows.setImage("images/sipka_red.png");
+        }
+        else {
+            removeObject(arrows);
+        }
+        if (Greenfoot.mouseClicked(trade)&& vymena==0){
+            vymena =1;
+        }
+        else if (Greenfoot.mouseClicked(trade) && vymena==1 || vymena==2){
+            vymena =0;
+        }
 
     }
 
