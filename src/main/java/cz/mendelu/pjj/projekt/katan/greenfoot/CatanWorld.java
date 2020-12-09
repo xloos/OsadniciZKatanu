@@ -20,6 +20,7 @@ public class CatanWorld extends World {
     ModraDedina modraDedina = new ModraDedina();
     ModreMesto modreMesto = new ModreMesto();
     PlayButton p = new PlayButton();
+    ZmenaKola zmena = new ZmenaKola();
     Menu m = new Menu();
     ListButton l = new ListButton();
     TownButton town = new TownButton();
@@ -155,6 +156,7 @@ public class CatanWorld extends World {
             addObject(road, 75, 480);
             addObject(trade, 75, 390);
             addObject(helpIcon, 1130, 340);
+            addObject(zmena, 1030, 340);
             addObject(pirate, 790, 780);
             spustenie = true;
         }
@@ -512,9 +514,6 @@ public class CatanWorld extends World {
         getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("BRICK"), 25, Color.WHITE, Color.BLACK), 1110, 920);
         getBackground().drawImage(sheep, 1140, 870);
         getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 1160, 920);
-
-
-
 
     }
 }

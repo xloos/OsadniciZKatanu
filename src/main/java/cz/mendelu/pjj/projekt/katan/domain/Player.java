@@ -71,11 +71,11 @@ public class Player extends Actor {
     public boolean buildVillage(int cisloCountryBlocku) {
         if(resources.get("WOOD") < 1 || resources.get("GRAIN") <1 || resources.get("BRICK") <1 || resources.get("SHEEP") <1 || road < 2) {
             if(road < 2) {
-                CatanWorld.oznam("Nemáš koupené 2 cesty na stavbu vesnice");
+                CatanWorld.oznam("Nemas koupene 2 cesty na stavbu vesnice");
                 return false;
             }
             else if (resources.get("WOOD") < 1 || resources.get("GRAIN") <1 || resources.get("BRICK") <1 || resources.get("SHEEP") <1){
-                CatanWorld.oznam("Nemáš dostatek surovin na stavbu vesnice");
+                CatanWorld.oznam("Nemas dostatek surovin na stavbu vesnice");
                 return false;
             }
         }
@@ -106,26 +106,6 @@ public class Player extends Actor {
         return false;
     }
 
-    public boolean termVillage(int cisloCountryBlocku) {
-
-        if (resources.get("WOOD") >= 1 & resources.get("GRAIN") >= 1 & resources.get("BRICK") >= 1 & resources.get("SHEEP") >= 1 & road < 2) {
-
-            for (CountryBlock c : Game.getCountryBlocks()) {
-                if (c.getSuradnice() == cisloCountryBlocku) {
-                    if (c.getTyp_obydla() < 1) {
-                    }
-                    else {
-                        return false;
-                    }
-                }
-            }
-        }
-        else {
-            return false;
-        }
-        return true;
-    }
-
     public boolean buildTown(int cisloCountryBlocku) {
 
         if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3 ) {
@@ -147,11 +127,11 @@ public class Player extends Actor {
                         return true;
                     }
                     else if (c.getTyp_obydla()==2){
-                        CatanWorld.oznam("Zde už je postavene mesto");
+                        CatanWorld.oznam("Zde uz je postavene mesto");
                         return false;
                     }
                     else {
-                        CatanWorld.oznam("Potřebuješ zde postavit prvni vesnici");
+                        CatanWorld.oznam("Potrebujes zde postavit prvni vesnici");
                         return false;
                     }
                 }
@@ -159,7 +139,7 @@ public class Player extends Actor {
 
         }
         else{
-            CatanWorld.oznam("Nemáš dostatek surovin na stavbu města");
+            CatanWorld.oznam("Nemas dostatek surovin na stavbu mesta");
             return false;
         }
         return false;
@@ -218,7 +198,7 @@ public class Player extends Actor {
             case 5: surovina = "SHEEP";
                 break;
             default:
-                CatanWorld.oznam("Zadal si číslo mimo rozsah");
+                CatanWorld.oznam("Zadal si cislo mimo rozsah");
         }
 
         switch(getSurovina) {
@@ -326,13 +306,6 @@ public class Player extends Actor {
         return blocks;
     }
 
-    public static void main(String[] args) {
-        Player p1 = new Player("Jirka");
-        Player p2 = new Player("Pepa");
-        Player p3 = new Player("Jirka");
-        System.out.println(p1.equals(p2));
-        System.out.println(p1.equals(p3));
-    }
 
 
 }
