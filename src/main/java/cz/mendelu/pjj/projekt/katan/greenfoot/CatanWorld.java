@@ -19,6 +19,7 @@ public class CatanWorld extends World {
     boolean spustenie = false;
     ModraDedina modraDedina = new ModraDedina();
     ModreMesto modreMesto = new ModreMesto();
+
     PlayButton p = new PlayButton();
     ZmenaKola zmena = new ZmenaKola();
     Menu m = new Menu();
@@ -284,7 +285,7 @@ public class CatanWorld extends World {
     private void nakupCesty(int kolo) {
         if (Greenfoot.mouseClicked(road))
         {
-                Game.players.get(0).buyRoad();
+                Game.players.get((kolo)-1).buyRoad();
             }
         }
         
@@ -346,7 +347,7 @@ public class CatanWorld extends World {
                 zaco = 1;
                 System.out.println(zaco);
                 System.out.println(co);
-                Game.players.get(0).trade(co,zaco);
+                Game.players.get((kolo)-1).trade(co,zaco);
 
             }
             if (vymena ==2 && Greenfoot.mouseClicked(grain)){
@@ -354,28 +355,28 @@ public class CatanWorld extends World {
                 zaco = 2;
                 System.out.println(zaco);
                 System.out.println(co);
-                Game.players.get(0).trade(co,zaco);
+                Game.players.get((kolo)-1).trade(co,zaco);
             }
             if (vymena ==2 && Greenfoot.mouseClicked(stone)){
                 vymena = 0;
                 zaco = 3;
                 System.out.println(zaco);
                 System.out.println(co);
-                Game.players.get(0).trade(co,zaco);
+                Game.players.get((kolo)-1).trade(co,zaco);
             }
             if (vymena ==2 && Greenfoot.mouseClicked(brick)){
                 vymena = 0;
                 zaco = 4;
                 System.out.println(zaco);
                 System.out.println(co);
-                Game.players.get(0).trade(co,zaco);
+                Game.players.get((kolo)-1).trade(co,zaco);
             }
             if (vymena ==2&& Greenfoot.mouseClicked(sheep)){
                 vymena = 0;
                 zaco = 5;
                 System.out.println(zaco);
                 System.out.println(co);
-                Game.players.get(0).trade(co,zaco);
+                Game.players.get((kolo)-1).trade(co,zaco);
             }
 
 
