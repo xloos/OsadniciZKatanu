@@ -612,7 +612,7 @@ public class CatanWorld extends World {
     }
    public void pridelenieSurovin (){
         //4 hraci
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             //54 policok
            for (int j = 0; j < 54; j++) {
                //ci je postavena dedina
@@ -620,7 +620,7 @@ public class CatanWorld extends World {
                        //3 susedne krajiny
                        for (int k = 0; k < 3; k++){
                            //ci nejake policko sa rovna cislu na kocke
-                           if(Game.countryBlocks.get(j).cislo_policka[k]==Game.getDice()){
+                           if(Game.countryBlocks.get(j).cislo_policka[k]==Game.getDice() && Game.countryBlocks.get(j).getTyp_hraca()==i){
                                //rozdelenie surovin podla krajiny
                                // WOOD 1
                                // GRAIN 2
@@ -628,19 +628,24 @@ public class CatanWorld extends World {
                                // BRICK 4
                                // SHEEP 5
                                if(Game.countryBlocks.get(j).typ_krajiny[k]==1){
-                                   Game.players.get(i).resources.put("WOOD",Game.players.get(i).resources.get("WOOD") + 1);
+                                   Game.players.get(i-1).resources.put("WOOD",Game.players.get(i-1).resources.get("WOOD") + 1);
+                                   System.out.println(i);
                                }
                                if(Game.countryBlocks.get(j).typ_krajiny[k]==2){
-                                   Game.players.get(i).resources.put("GRAIN",Game.players.get(i).resources.get("GRAIN") + 1);
+                                   Game.players.get(i-1).resources.put("GRAIN",Game.players.get(i-1).resources.get("GRAIN") + 1);
+                                   System.out.println(i);
                                }
                                if(Game.countryBlocks.get(j).typ_krajiny[k]==3){
-                                   Game.players.get(i).resources.put("STONE",Game.players.get(i).resources.get("STONE") + 1);
+                                   Game.players.get(i-1).resources.put("STONE",Game.players.get(i-1).resources.get("STONE") + 1);
+                                   System.out.println(i);
                                }
                                if(Game.countryBlocks.get(j).typ_krajiny[k]==4){
-                                   Game.players.get(i).resources.put("BRICK",Game.players.get(i).resources.get("BRICK") + 1);
+                                   Game.players.get(i-1).resources.put("BRICK",Game.players.get(i-1).resources.get("BRICK") + 1);
+                                   System.out.println(i);
                                }
                                if(Game.countryBlocks.get(j).typ_krajiny[k]==5){
-                                   Game.players.get(i).resources.put("SHEEP",Game.players.get(i).resources.get("SHEEP") + 1);
+                                   Game.players.get(i-1).resources.put("SHEEP",Game.players.get(i-1).resources.get("SHEEP") + 1);
+                                   System.out.println(i);
                                }
                            }
                        }
@@ -683,7 +688,6 @@ public class CatanWorld extends World {
 
               }
         }
-
 
    }
 }
