@@ -19,6 +19,12 @@ public class CatanWorld extends World {
     boolean spustenie = false;
     ModraDedina modraDedina = new ModraDedina();
     ModreMesto modreMesto = new ModreMesto();
+    CervenaDedina cervenaDedina = new CervenaDedina();
+    CerveneMesto cerveneMesto = new CerveneMesto();
+    ZelenaDedina zelenaDedina = new ZelenaDedina();
+    ZeleneMesto zeleneMesto = new ZeleneMesto();
+    CernaDedina cernaDedina = new CernaDedina();
+    CerneMesto cerneMesto = new CerneMesto();
 
     PlayButton p = new PlayButton();
     ZmenaKola zmena = new ZmenaKola();
@@ -200,7 +206,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get(0).buildVillage(i)) {
+                        if (Game.players.get((kolo)-1).buildVillage(i)) {
                             Game.countryBlocks.get(i).setImage("images/Village_blue.png");
                         }
 
@@ -208,39 +214,39 @@ public class CatanWorld extends World {
                 }
             }
             if (kolo==2) {
-                addObject(modraDedina, mouse.getX(), mouse.getY() + 25);
-                modraDedina.setLocation(mouse.getX(), mouse.getY() + 25);
+                addObject(cervenaDedina, mouse.getX(), mouse.getY() + 25);
+                cervenaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get(0).buildVillage(i)) {
-                            Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Village_red.png");
                         }
 
                     }
                 }
             }
             if (kolo==3) {
-                addObject(modraDedina, mouse.getX(), mouse.getY() + 25);
-                modraDedina.setLocation(mouse.getX(), mouse.getY() + 25);
+                addObject(zelenaDedina, mouse.getX(), mouse.getY() + 25);
+                zelenaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get(0).buildVillage(i)) {
-                            Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Village_green.png");
                         }
 
                     }
                 }
             }
             if (kolo==4) {
-                addObject(modraDedina, mouse.getX(), mouse.getY() + 25);
-                modraDedina.setLocation(mouse.getX(), mouse.getY() + 25);
+                addObject(cernaDedina, mouse.getX(), mouse.getY() + 25);
+                cernaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get(0).buildVillage(i)) {
-                            Game.countryBlocks.get(i).setImage("images/Village_blue.png");
+                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Village_black.png");
                         }
 
                     }
@@ -261,20 +267,65 @@ public class CatanWorld extends World {
         {
             budovanie =false;
         }
-        if (budovanie){
+        if (budovanie) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
-            addObject(modreMesto,mouse.getX(),mouse.getY()+70);
-            modreMesto.setLocation(mouse.getX(),mouse.getY()+30);
-            for (int i = 0; i < 54; i++) {
-                if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie)
-                {
-                    budovanie =false;
-                    if(Game.players.get(0).buildTown(i)){
-                        Game.countryBlocks.get(i).setImage("images/Town_blue.png");
-                    }
 
+            if (kolo == 1) {
+                addObject(modreMesto, mouse.getX(), mouse.getY() + 70);
+                modreMesto.setLocation(mouse.getX(), mouse.getY() + 30);
+                for (int i = 0; i < 54; i++) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                        budovanie = false;
+                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Town_blue.png");
+                        }
+
+                    }
                 }
             }
+
+            if (kolo == 2) {
+                addObject(cerveneMesto, mouse.getX(), mouse.getY() + 70);
+                cerveneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
+                for (int i = 0; i < 54; i++) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                        budovanie = false;
+                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Town_red.png");
+                        }
+
+                    }
+                }
+            }
+
+            if (kolo == 3) {
+                addObject(zeleneMesto, mouse.getX(), mouse.getY() + 70);
+                zeleneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
+                for (int i = 0; i < 54; i++) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                        budovanie = false;
+                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Town_green.png");
+                        }
+
+                    }
+                }
+            }
+
+            if (kolo == 4) {
+                addObject(cerneMesto, mouse.getX(), mouse.getY() + 70);
+                cerneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
+                for (int i = 0; i < 54; i++) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                        budovanie = false;
+                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                            Game.countryBlocks.get(i).setImage("images/Town_black.png");
+                        }
+
+                    }
+                }
+            }
+
         }
         else if (!budovanie){
             removeObject(modreMesto);
