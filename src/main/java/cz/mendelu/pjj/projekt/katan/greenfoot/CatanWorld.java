@@ -161,6 +161,10 @@ public class CatanWorld extends World {
             spustenie = true;
         }
         if (spustenie==true){
+            if (Greenfoot.mouseClicked(zmena)){
+                zmenaKola();
+                CatanWorld.oznam("Kolo bylo zmenene"+kolo);
+            }
             vypisHracInfo();
             vypisKocky(kolo);
             presuvaniePirata(kolo);
@@ -168,6 +172,7 @@ public class CatanWorld extends World {
             nakupCesty(kolo);
             postavDedinu(kolo);
             postavMesto(kolo);
+
             if (vypis==true){
                 addObject(CatanWorld.alert, 600, 450);
                 vypis = false;
@@ -415,7 +420,22 @@ public class CatanWorld extends World {
 
 
     private void vypisKocky(int kolo) {
-        addObject(dice, 220, 60);
+        if (kolo==1) {
+            removeObject(dice);
+            addObject(dice, 220, 60);
+        }
+        if (kolo==2) {
+            removeObject(dice);
+            addObject(dice, 220, 500);
+        }
+        if (kolo==3) {
+            removeObject(dice);
+            addObject(dice, 220, 300);
+        }
+        if (kolo==4) {
+            removeObject(dice);
+            addObject(dice, 220, 800);
+        }
         if(Game.getDice()==7){
             pirat_posun = true;
             Game.setDice(0);
@@ -515,5 +535,13 @@ public class CatanWorld extends World {
         getBackground().drawImage(sheep, 1140, 870);
         getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 1160, 920);
 
+    }
+    public void zmenaKola(){
+        if (kolo == 4){
+            kolo =1;
+        }
+        else {
+            kolo++;
+        }
     }
 }
