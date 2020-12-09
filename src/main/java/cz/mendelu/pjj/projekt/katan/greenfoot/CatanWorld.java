@@ -164,7 +164,7 @@ public class CatanWorld extends World {
         if (spustenie==true){
             if (Greenfoot.mouseClicked(zmena)){
                 zmenaKola();
-                CatanWorld.oznam("Kolo bylo zmenene"+kolo);
+                CatanWorld.oznam("Hrac "+kolo+" je na rade");
             }
             vypisHracInfo();
             vypisKocky(kolo);
@@ -422,31 +422,35 @@ public class CatanWorld extends World {
 
     private void vypisKocky(int kolo) {
         if (kolo==1) {
+            showText(" ",1140,800);
             removeObject(dice);
             addObject(dice, 220, 60);
         }
         if (kolo==2) {
-            removeObject(dice);
-            addObject(dice, 220, 500);
-        }
-        if (kolo==3) {
-            removeObject(dice);
-            addObject(dice, 220, 300);
-        }
-        if (kolo==4) {
+            showText(" ",220,60);
             removeObject(dice);
             addObject(dice, 220, 800);
+        }
+        if (kolo==3) {
+            showText(" ",220,800);
+            removeObject(dice);
+            addObject(dice, 1140, 60);
+        }
+        if (kolo==4) {
+            showText(" ",1140,60);
+            removeObject(dice);
+            addObject(dice, 1140, 800);
         }
         if(Game.getDice()==7){
             pirat_posun = true;
             Game.setDice(0);
-            oznam("Zadal si 7 mozes posuvat pirata");
+            oznam("Zadal si 7 Hrac "+kolo+" moze posuvat pirata");
 
         }
         //drawImage(new GreenfootImage(""+Game.getDice(), 30, null, Color.WHITE), 200, 850);
         if (Game.getDice()==0) {
-            showText("Pirat",dice.getX(), dice.getY()-10);
-            showText("7",dice.getX(), dice.getY()+10);
+            showText("7",dice.getX(), dice.getY());
+
 
         }else{
             showText(" ",dice.getX(),dice.getY());
@@ -544,5 +548,6 @@ public class CatanWorld extends World {
         else {
             kolo++;
         }
+        Game.setDice(Game.diceRoll());
     }
 }
