@@ -170,7 +170,7 @@ public class CatanWorld extends World {
         if (spustenie==true){
             if (Greenfoot.mouseClicked(zmena)){
                 zmenaKola();
-                CatanWorld.oznam("Hrac "+kolo+" je na rade");
+               // CatanWorld.oznam("Hrac "+kolo+" je na rade");
             }
             vypisHracInfo();
             vypisKocky(kolo);
@@ -206,7 +206,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                        if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_blue.png");
                         }
 
@@ -219,7 +219,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                        if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_red.png");
                         }
 
@@ -232,7 +232,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                        if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_green.png");
                         }
 
@@ -245,7 +245,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
                         stavanie = false;
-                        if (Game.players.get((kolo)-1).buildVillage(i)) {
+                        if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_black.png");
                         }
 
@@ -279,7 +279,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
                         budovanie = false;
-                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                        if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_blue.png");
                         }
 
@@ -293,7 +293,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
                         budovanie = false;
-                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                        if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_red.png");
                         }
 
@@ -307,7 +307,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
                         budovanie = false;
-                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                        if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_green.png");
                         }
 
@@ -321,7 +321,7 @@ public class CatanWorld extends World {
                 for (int i = 0; i < 54; i++) {
                     if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
                         budovanie = false;
-                        if (Game.players.get((kolo)-1).buildTown(i)) {
+                        if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_black.png");
                         }
 
@@ -605,6 +605,85 @@ public class CatanWorld extends World {
         else {
             kolo++;
         }
+        pirat_posun = false;
+        pirate.setLocation(790,780);
         Game.setDice(Game.diceRoll());
+        pridelenieSurovin();
     }
+   public void pridelenieSurovin (){
+        //4 hraci
+        for (int i = 0; i < 4; i++) {
+            //54 policok
+           for (int j = 0; j < 54; j++) {
+               //ci je postavena dedina
+                   if (Game.countryBlocks.get(j).getTyp_obydla()==1) {
+                       //3 susedne krajiny
+                       for (int k = 0; k < 3; k++){
+                           //ci nejake policko sa rovna cislu na kocke
+                           if(Game.countryBlocks.get(j).cislo_policka[k]==Game.getDice()){
+                               //rozdelenie surovin podla krajiny
+                               // WOOD 1
+                               // GRAIN 2
+                               // STONE 3
+                               // BRICK 4
+                               // SHEEP 5
+                               if(Game.countryBlocks.get(j).typ_krajiny[k]==1){
+                                   Game.players.get(i).resources.put("WOOD",Game.players.get(i).resources.get("WOOD") + 1);
+                               }
+                               if(Game.countryBlocks.get(j).typ_krajiny[k]==2){
+                                   Game.players.get(i).resources.put("GRAIN",Game.players.get(i).resources.get("GRAIN") + 1);
+                               }
+                               if(Game.countryBlocks.get(j).typ_krajiny[k]==3){
+                                   Game.players.get(i).resources.put("STONE",Game.players.get(i).resources.get("STONE") + 1);
+                               }
+                               if(Game.countryBlocks.get(j).typ_krajiny[k]==4){
+                                   Game.players.get(i).resources.put("BRICK",Game.players.get(i).resources.get("BRICK") + 1);
+                               }
+                               if(Game.countryBlocks.get(j).typ_krajiny[k]==5){
+                                   Game.players.get(i).resources.put("SHEEP",Game.players.get(i).resources.get("SHEEP") + 1);
+                               }
+                           }
+                       }
+
+
+                   }
+               //ci je postavene mesto
+               if (Game.countryBlocks.get(j).getTyp_obydla()==2) {
+                   //3 susedne krajiny
+                   for (int k = 0; k < 3; k++){
+                       //ci nejake policko sa rovna cislu na kocke
+                       if(Game.countryBlocks.get(j).cislo_policka[k]==Game.getDice()){
+                           //rozdelenie surovin podla krajiny
+                           // WOOD 1
+                           // GRAIN 2
+                           // STONE 3
+                           // BRICK 4
+                           // SHEEP 5
+                           if(Game.countryBlocks.get(j).typ_krajiny[k]==1){
+                               Game.players.get(i).resources.put("WOOD",Game.players.get(i).resources.get("WOOD") + 2);
+                           }
+                           if(Game.countryBlocks.get(j).typ_krajiny[k]==2){
+                               Game.players.get(i).resources.put("GRAIN",Game.players.get(i).resources.get("GRAIN") + 2);
+                           }
+                           if(Game.countryBlocks.get(j).typ_krajiny[k]==3){
+                               Game.players.get(i).resources.put("STONE",Game.players.get(i).resources.get("STONE") + 2);
+                           }
+                           if(Game.countryBlocks.get(j).typ_krajiny[k]==4){
+                               Game.players.get(i).resources.put("BRICK",Game.players.get(i).resources.get("BRICK") + 2);
+                           }
+                           if(Game.countryBlocks.get(j).typ_krajiny[k]==5){
+                               Game.players.get(i).resources.put("SHEEP",Game.players.get(i).resources.get("SHEEP") + 2);
+                           }
+
+                       }
+                   }
+
+
+               }
+
+              }
+        }
+
+
+   }
 }

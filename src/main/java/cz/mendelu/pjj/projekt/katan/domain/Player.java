@@ -10,14 +10,13 @@ public class Player extends Actor {
     private String name;
     private int road = 4;
     private int points = 0;
-    private HashMap<String, Integer> resources;
-    private ArrayList<CountryBlock> blocks;
+    public HashMap<String, Integer> resources;
+
 
     public Player(String name) {
 
         this.name = name;
         resources = new HashMap<String, Integer>(5);
-        blocks = new ArrayList<CountryBlock>();
         resources.put("WOOD",5);
         resources.put("GRAIN",5);
         resources.put("STONE",5);
@@ -59,7 +58,7 @@ public class Player extends Actor {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, road, resources, blocks);
+        return Objects.hash(name, road, resources);
     }
 
     /**
@@ -68,7 +67,7 @@ public class Player extends Actor {
      * @author xpavlik
      * @version 1.0.0
      */
-    public boolean buildVillage(int cisloCountryBlocku) {
+    public boolean buildVillage(int cisloCountryBlocku, int hrac) {
         if(resources.get("WOOD") < 1 || resources.get("GRAIN") <1 || resources.get("BRICK") <1 || resources.get("SHEEP") <1 || road < 2) {
             if(road < 2) {
                 CatanWorld.oznam("Nemas koupene 2 cesty na stavbu vesnice");
@@ -86,6 +85,7 @@ public class Player extends Actor {
                 if(Game.countryBlocks.get(i).getSuradnice() == cisloCountryBlocku) {
                     if(Game.countryBlocks.get(i).getTyp_obydla()<1) {
                         Game.countryBlocks.get(i).setTyp_obydla(1);
+                        Game.countryBlocks.get(i).setTyp_hraca(hrac);
                         resources.put("WOOD", resources.get("WOOD") - 1);
                         resources.put("GRAIN", resources.get("GRAIN") - 1);
                         resources.put("BRICK", resources.get("BRICK") - 1);
@@ -106,15 +106,14 @@ public class Player extends Actor {
         return false;
     }
 
-    public boolean buildTown(int cisloCountryBlocku) {
+    public boolean buildTown(int cisloCountryBlocku, int hrac) {
 
         if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3 ) {
 
             for (CountryBlock c : Game.getCountryBlocks()) {
                 if (c.getSuradnice() == cisloCountryBlocku) {
-                    if(c.getTyp_obydla()==1) {
+                    if(c.getTyp_obydla()==1 && c.getTyp_hraca()==hrac) {
                         c.setTyp_obydla(2);
-
                         resources.put("GRAIN", resources.get("GRAIN") - 2);
                         resources.put("STONE", resources.get("STONE") - 3);
 
@@ -265,7 +264,6 @@ public class Player extends Actor {
                 "name='" + name + '\'' +
                 ", road=" + road +
                 ", resources=" + resources +
-                ", blocks=" + blocks +
                 '}';
     }
     /**
@@ -302,9 +300,6 @@ public class Player extends Actor {
         return resources;
     }
 
-    public ArrayList<CountryBlock> getBlocks() {
-        return blocks;
-    }
 
 
 

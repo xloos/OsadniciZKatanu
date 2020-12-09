@@ -8,20 +8,31 @@ import java.util.Objects;
 public class CountryBlock extends Actor {
 
     public static Object get;
-    Map<Integer,Integer> myblock = new HashMap<Integer, Integer>();
+    private int typ_hraca=0;
+    public Map<Integer,Integer> myblock = new HashMap<Integer, Integer>();
+    public int typ_krajiny[]= {0,0,0,0};
+    public int cislo_policka[]= {0,0,0,0};
     private  int suradnice;
     private boolean pirat;
+
+
     private int typ_obydlia =0; //0 = nie je nic postavene, 1 = postavena dedina , 2 = postavene mesto
 
     public CountryBlock (int c_type_number, int c_number, int c_suradnice){
        this.suradnice = c_suradnice;
         myblock.put(c_type_number, c_number);
+        typ_krajiny[0]=c_type_number;
+        cislo_policka[0]=c_number;
         setImage("images/build2.png");
     }
     public CountryBlock (int c_type_number, int c_number,int c_type_number1, int c_number1, int c_suradnice){
         this.suradnice = c_suradnice;
         myblock.put(c_type_number, c_number);
         myblock.put(c_type_number1, c_number1);
+        typ_krajiny[0]=c_type_number;
+        cislo_policka[0]=c_number;
+        typ_krajiny[1]=c_type_number1;
+        cislo_policka[1]=c_number1;
         setImage("images/build2.png");
     }
 
@@ -30,6 +41,12 @@ public class CountryBlock extends Actor {
         myblock.put(c_type_number, c_number);
         myblock.put(c_type_number1, c_number1);
         myblock.put(c_type_number2, c_number2);
+        typ_krajiny[0]=c_type_number;
+        cislo_policka[0]=c_number;
+        typ_krajiny[1]=c_type_number1;
+        cislo_policka[1]=c_number1;
+        typ_krajiny[2]=c_type_number2;
+        cislo_policka[2]=c_number2;
         setImage("images/build2.png");
     }
 
@@ -99,5 +116,12 @@ public class CountryBlock extends Actor {
     @Override
     public void act() {
         super.act();
+    }
+
+    public int getTyp_hraca() {
+        return typ_hraca;
+    }
+    public void setTyp_hraca(int typ_hraca) {
+        this.typ_hraca = typ_hraca;
     }
 }
