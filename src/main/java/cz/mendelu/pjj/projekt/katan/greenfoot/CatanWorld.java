@@ -255,6 +255,9 @@ public class CatanWorld extends World {
         }
         else if (!stavanie){
             removeObject(modraDedina);
+            removeObject(cervenaDedina);
+            removeObject(zelenaDedina);
+            removeObject(cernaDedina);
         }
 
     }
@@ -329,6 +332,9 @@ public class CatanWorld extends World {
         }
         else if (!budovanie){
             removeObject(modreMesto);
+            removeObject(cerveneMesto);
+            removeObject(zeleneMesto);
+            removeObject(cerneMesto);
         }
 
     }
