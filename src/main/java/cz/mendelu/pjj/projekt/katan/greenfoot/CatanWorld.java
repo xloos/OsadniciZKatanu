@@ -14,8 +14,10 @@ public class CatanWorld extends World {
     int co = 0;
     int zaco =0;
     boolean stavanie = false;
+    boolean budovanie = false;
     boolean spustenie = false;
     ModraDedina modraDedina = new ModraDedina();
+    ModreMesto modreMesto = new ModreMesto();
     PlayButton p = new PlayButton();
     Menu m = new Menu();
     ListButton l = new ListButton();
@@ -166,6 +168,7 @@ public class CatanWorld extends World {
                 vypis = false;
             }
             postavDedinu();
+            postavMesto();
         }
 
 
@@ -197,6 +200,35 @@ public class CatanWorld extends World {
         }
         else if (!stavanie){
             removeObject(modraDedina);
+        }
+
+    }
+    private void postavMesto() {
+        if (Greenfoot.mouseClicked(town) && !budovanie)
+        {
+            budovanie =true;
+        }
+        else if (Greenfoot.mouseClicked(town) && budovanie)
+        {
+            budovanie =false;
+        }
+        if (budovanie){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            addObject(modreMesto,mouse.getX(),mouse.getY()+70);
+            modreMesto.setLocation(mouse.getX(),mouse.getY()+30);
+            for (int i = 0; i < 54; i++) {
+                if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie)
+                {
+                    budovanie =false;
+                    if(Game.players.get(0).buildTown(i)){
+                        Game.countryBlocks.get(i).setImage("images/Town_blue.png");
+                    }
+
+                }
+            }
+        }
+        else if (!budovanie){
+            removeObject(modreMesto);
         }
 
     }

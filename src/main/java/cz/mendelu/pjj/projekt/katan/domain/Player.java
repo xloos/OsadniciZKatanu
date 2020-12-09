@@ -2,11 +2,7 @@ package cz.mendelu.pjj.projekt.katan.domain;
 
 import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import greenfoot.Actor;
-import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
-import greenfoot.Greenfoot;
 
-import javax.print.DocFlavor;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Player extends Actor {
@@ -96,6 +92,7 @@ public class Player extends Actor {
                         resources.put("SHEEP", resources.get("SHEEP") - 1);
                         setRoad(-2);
                         setPoints(1);
+                        CatanWorld.oznam("Vesnice byla postavena");
                         return true;
                     }
                 }
@@ -129,7 +126,7 @@ public class Player extends Actor {
         return true;
     }
 
-    public void buildTown(int cisloCountryBlocku) {
+    public boolean buildTown(int cisloCountryBlocku) {
 
         if (resources.get("GRAIN") >= 2 & resources.get("STONE") >= 3 ) {
 
@@ -143,22 +140,29 @@ public class Player extends Actor {
 
 
                         setPoints(2);
+                        CatanWorld.oznam("Mesto bylo postaveno");
                         if (Game.endGame() == true){
                             CatanWorld.oznam("Konec hry !");
                         }
+                        return true;
                     }
                     else if (c.getTyp_obydla()==2){
                         CatanWorld.oznam("Zde už je postavene mesto");
+                        return false;
                     }
                     else {
                         CatanWorld.oznam("Potřebuješ zde postavit prvni vesnici");
+                        return false;
                     }
                 }
             }
 
         }
-        else
+        else{
             CatanWorld.oznam("Nemáš dostatek surovin na stavbu města");
+            return false;
+        }
+        return false;
     }
 
     /**
