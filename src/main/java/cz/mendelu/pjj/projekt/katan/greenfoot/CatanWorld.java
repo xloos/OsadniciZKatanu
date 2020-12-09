@@ -156,7 +156,7 @@ public class CatanWorld extends World {
             addObject(road, 75, 480);
             addObject(trade, 75, 390);
             addObject(helpIcon, 1130, 340);
-            addObject(zmena, 1030, 340);
+            addObject(zmena, 1130, 440);
             addObject(pirate, 790, 780);
             spustenie = true;
         }
