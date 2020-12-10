@@ -1,5 +1,6 @@
 package cz.mendelu.pjj.projekt.katan.domain;
 
+import cz.mendelu.pjj.projekt.katan.greenfoot.CatanWorld;
 import greenfoot.GreenfootImage;
 
 import java.awt.*;
@@ -97,8 +98,6 @@ public class Game{
     public static boolean endGame(){
             for (Player pl : Game.getPlayers()) {
                 if (pl.getPoints() >= 10) {
-                    System.out.println("Hra skoncila, vzhral hrac s menom: " );
-                    System.out.println(pl.getName());
                     return true;
                 }
             }

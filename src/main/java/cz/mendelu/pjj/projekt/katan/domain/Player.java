@@ -17,11 +17,11 @@ public class Player extends Actor {
 
         this.name = name;
         resources = new HashMap<String, Integer>(5);
-        resources.put("WOOD",5);
-        resources.put("GRAIN",5);
-        resources.put("STONE",5);
-        resources.put("BRICK",5);
-        resources.put("SHEEP",5);
+        resources.put("WOOD",40);
+        resources.put("GRAIN",40);
+        resources.put("STONE",40);
+        resources.put("BRICK",40);
+        resources.put("SHEEP",40);
     }
 
     /**
@@ -93,7 +93,13 @@ public class Player extends Actor {
                         setRoad(-2);
                         setPoints(1);
                         CatanWorld.oznam("Vesnice byla postavena");
+                        if (Game.endGame() == true){
+                            CatanWorld.oznam("Konec hry !\n Vyhral hrac " + hrac);
+                        }
                         return true;
+                    }
+                    else {
+                        CatanWorld.oznam("Zde ma postaveno jiny hrac");
                     }
                 }
             }
@@ -118,10 +124,10 @@ public class Player extends Actor {
                         resources.put("STONE", resources.get("STONE") - 3);
 
 
-                        setPoints(2);
+                        setPoints(1);
                         CatanWorld.oznam("Mesto bylo postaveno");
                         if (Game.endGame() == true){
-                            CatanWorld.oznam("Konec hry !");
+                            CatanWorld.oznam("Konec hry !\n Vyhral hrac " + hrac);
                         }
                         return true;
                     }
