@@ -204,7 +204,7 @@ public class CatanWorld extends World {
                 addObject(modraDedina, mouse.getX(), mouse.getY() + 25);
                 modraDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         stavanie = false;
                         if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_blue.png");
@@ -217,7 +217,7 @@ public class CatanWorld extends World {
                 addObject(cervenaDedina, mouse.getX(), mouse.getY() + 25);
                 cervenaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         stavanie = false;
                         if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_red.png");
@@ -230,7 +230,7 @@ public class CatanWorld extends World {
                 addObject(zelenaDedina, mouse.getX(), mouse.getY() + 25);
                 zelenaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         stavanie = false;
                         if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_green.png");
@@ -243,7 +243,7 @@ public class CatanWorld extends World {
                 addObject(cernaDedina, mouse.getX(), mouse.getY() + 25);
                 cernaDedina.setLocation(mouse.getX(), mouse.getY() + 25);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && stavanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         stavanie = false;
                         if (Game.players.get((kolo)-1).buildVillage(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Village_black.png");
@@ -277,7 +277,7 @@ public class CatanWorld extends World {
                 addObject(modreMesto, mouse.getX(), mouse.getY() + 70);
                 modreMesto.setLocation(mouse.getX(), mouse.getY() + 30);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         budovanie = false;
                         if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_blue.png");
@@ -291,7 +291,7 @@ public class CatanWorld extends World {
                 addObject(cerveneMesto, mouse.getX(), mouse.getY() + 70);
                 cerveneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         budovanie = false;
                         if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_red.png");
@@ -305,7 +305,7 @@ public class CatanWorld extends World {
                 addObject(zeleneMesto, mouse.getX(), mouse.getY() + 70);
                 zeleneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         budovanie = false;
                         if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_green.png");
@@ -319,7 +319,7 @@ public class CatanWorld extends World {
                 addObject(cerneMesto, mouse.getX(), mouse.getY() + 70);
                 cerneMesto.setLocation(mouse.getX(), mouse.getY() + 30);
                 for (int i = 0; i < 54; i++) {
-                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie) {
+                    if (Greenfoot.mouseClicked(Game.countryBlocks.get(i)) && budovanie && Game.countryBlocks.get(i).hasPirate()==false) {
                         budovanie = false;
                         if (Game.players.get((kolo)-1).buildTown(i,kolo)) {
                             Game.countryBlocks.get(i).setImage("images/Town_black.png");
@@ -465,7 +465,7 @@ public class CatanWorld extends World {
                     pirat_posun = false;
                     pirate.setLocation(Game.countryBlocks.get(i).getX(),Game.countryBlocks.get(i).getY());
                     Game.countryBlocks.get(i).setPirat(true);
-                    Game.countryBlocks.get(i).setImage("images/x.png");
+
 
                 }
 
@@ -606,7 +606,6 @@ public class CatanWorld extends World {
             kolo++;
         }
         pirat_posun = false;
-        pirate.setLocation(790,780);
         Game.setDice(Game.diceRoll());
         pridelenieSurovin();
     }
