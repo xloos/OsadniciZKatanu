@@ -50,6 +50,15 @@ public class CatanWorld extends World {
     Stone stone = new Stone();
     Sheep sheep = new Sheep();
     Grain grain = new Grain();
+
+
+    /**
+     * Metóda na vytvorení hraci plochy
+     * V prvej fáze sa spúšťa hra z menu.
+     * @author xpavlik
+     * @version 4.0.0
+     */
+
     public CatanWorld() {
         //super(1456, 1154, 1) originalna velkost
         super(1198, 950, 1);
@@ -122,7 +131,7 @@ public class CatanWorld extends World {
      * Metóda na spustenie hry
      * V prvej fáze sa spúšťa hra z menu.
      * @author xloos
-     * @version 1.0.0
+     * @version 4.0.0
      */
     @Override
     public void act() {
@@ -188,6 +197,12 @@ public class CatanWorld extends World {
 
 
     }
+
+    /**
+     * Metóda na postaveni dediny
+     * @author xloos
+     * @version 4.0.0
+     */
 
     private void postavDedinu(int kolo) {
         if (Greenfoot.mouseClicked(village) && !stavanie)
@@ -261,6 +276,12 @@ public class CatanWorld extends World {
         }
 
     }
+
+    /**
+     * Metóda na postaveni mesta
+     * @author xpavlik
+     * @version 4.0.0
+     */
     private void postavMesto(int kolo) {
         if (Greenfoot.mouseClicked(town) && !budovanie)
         {
@@ -339,13 +360,24 @@ public class CatanWorld extends World {
 
     }
 
+    /**
+     * Metóda na koupi cesty
+     * @author xloos
+     * @version 4.0.0
+     */
+
     private void nakupCesty(int kolo) {
         if (Greenfoot.mouseClicked(road))
         {
                 Game.players.get((kolo)-1).buyRoad();
             }
         }
-        
+
+    /**
+     * Metóda na postaveni mesta
+     * @author xpavlik
+     * @version 4.0.0
+     */
 
     private void vymenaSurovin(int kolo) {
 
@@ -452,6 +484,11 @@ public class CatanWorld extends World {
 
     }
 
+    /**
+     * Metóda na vymenu surovin
+     * @author xloos
+     * @version 4.0.0
+     */
     private void presuvaniePirata(int kolo) {
         if (pirat_posun == true) {
             if (Greenfoot.mouseDragged(pirate)) {
@@ -475,6 +512,12 @@ public class CatanWorld extends World {
 
         }
     }
+
+    /**
+     * Metóda na vypsani cisla kostky
+     * @author xpavlik
+     * @version 4.0.0
+     */
 
 
     private void vypisKocky(int kolo) {
@@ -515,6 +558,11 @@ public class CatanWorld extends World {
         }
 
     }
+    /**
+     * Metóda pro vypis aktualnich informaci
+     * @author xloos
+     * @version 4.0.0
+     */
 
     public static void oznam(String s) {
         String text = s;
@@ -524,6 +572,11 @@ public class CatanWorld extends World {
     }
 
 
+    /**
+     * Metóda pro vyspis informaci o hracovi
+     * @author xpavlik
+     * @version 4.0.0
+     */
 
     private void vypisHracInfo() {
 
@@ -598,6 +651,13 @@ public class CatanWorld extends World {
         getBackground().drawImage(new GreenfootImage(""+Game.players.get(3).getResources().get("SHEEP"), 25, Color.WHITE, Color.BLACK), 1160, 920);
 
     }
+
+    /**
+     * Metóda pro zmenu kola
+     * @author xpavlik
+     * @version 4.0.0
+     */
+
     public void zmenaKola(){
         if (kolo == 4){
             kolo =1;
@@ -609,6 +669,13 @@ public class CatanWorld extends World {
         Game.setDice(Game.diceRoll());
         pridelenieSurovin();
     }
+
+    /**
+     * Metóda pro prideleni surovin hracum
+     * @author xloos
+     * @version 4.0.0
+     */
+
    public void pridelenieSurovin (){
         //4 hraci
         for (int i = 0; i < 5; i++) {

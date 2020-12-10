@@ -17,11 +17,11 @@ public class Player extends Actor {
 
         this.name = name;
         resources = new HashMap<String, Integer>(5);
-        resources.put("WOOD",40);
-        resources.put("GRAIN",40);
-        resources.put("STONE",40);
-        resources.put("BRICK",40);
-        resources.put("SHEEP",40);
+        resources.put("WOOD",2);
+        resources.put("GRAIN",2);
+        resources.put("STONE",2);
+        resources.put("BRICK",2);
+        resources.put("SHEEP",2);
     }
 
     /**
