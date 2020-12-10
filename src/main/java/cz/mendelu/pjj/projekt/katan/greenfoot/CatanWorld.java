@@ -188,6 +188,9 @@ public class CatanWorld extends World {
             nakupCesty(kolo);
             postavDedinu(kolo);
             postavMesto(kolo);
+            if(Game.endGame()==true){
+                spustenie=false;
+            }
 
             if (vypis==true){
                 addObject(CatanWorld.alert, 600, 450);
@@ -676,7 +679,16 @@ public class CatanWorld extends World {
      * @version 4.0.0
      */
 
-   public void pridelenieSurovin (){
+
+    public void setSpustenie(boolean spustenie) {
+        this.spustenie = spustenie;
+    }
+
+    public boolean isSpustenie() {
+        return spustenie;
+    }
+
+    public void pridelenieSurovin (){
         //4 hraci
         for (int i = 0; i < 5; i++) {
             //54 policok
