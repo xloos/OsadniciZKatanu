@@ -44,7 +44,7 @@ class PlayerTest {
         //setup
         Player p_1 = Player.createNewPlayer("Rick");
         //when
-        p_1.trade();
+        p_1.trade(1,1);
         //then
         assertEquals("Wood", "Stone");
     }
@@ -60,7 +60,7 @@ class PlayerTest {
         //when + then
         assertThrows(
                 IndexOutOfBoundsException.class,
-                () -> p_1.trade());
+                () -> p_1.trade(1,1));
     }
 
     /**
@@ -71,7 +71,7 @@ class PlayerTest {
     void getBlocks_outofrange_type() {
         //setup
         Player p1 = Player.createNewPlayer("Rick");
-        ArrayList<CountryBlock> countryBlocks_1 = p1.getBlocks();
+       // ArrayList<CountryBlock> countryBlocks_1 = p1.getBlocks();
         //when
         CountryBlock cb7 = new CountryBlock(9,3,11);
         //then
@@ -102,19 +102,5 @@ class PlayerTest {
         assertEquals(1, p_1.getRoad());
     }
 
-    /**
-     * @author xpavlik
-     * @version 1.0.0
-     */
-   @Test
-
-    void buildVillage() {
-        //setup
-        Player p_1 = Player.createNewPlayer("Rick");
-        //when
-        p_1.buildVillage(4);
-        //then
-        assertNull(p_1.getBlocks());
-    }
 
 }
